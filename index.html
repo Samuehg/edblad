@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="jj.png" type="image/x-icon">
+  <title>EDBLAD S.A.S. — Acabados</title>
+  <meta name="description" content="EDBLAD — Especialistas en acabados." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07121a;
+      --card: #0f1720;
+      --accent: #0ea5a4;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.03);
+      --radius: 14px;
+      --ff: 'Inter', system-ui, -apple-system, Arial;
+    }
+    * { box-sizing: border-box }
+    body {
+      font-family: var(--ff);
+      margin: 0;
+      background: linear-gradient(180deg, #07101a 0%, #06121a 60%);
+      color: #e9f0f6;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a { color: inherit }
+    header {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(180deg, rgba(7, 18, 26, 0.6), rgba(7, 18, 26, 0.45));
+      backdrop-filter: blur(6px);
+      z-index: 40;
+    }
+    .brand { display: flex; gap: 12px; align-items: center }
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #0b84ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #042828;
+      font-size: 20px;
+    }
+    nav a {
+      color: var(--muted);
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 36px;
+      align-items: center;
+      padding: 48px 6%;
+    }
+    .hero-left h1 {
+      font-size: 44px;
+      margin: 0 0 12px 0;
+      line-height: 1.02;
+    }
+    .hero-left p { color: var(--muted); margin: 0 0 18px }
+    .cta { display: flex; gap: 12px; margin-top: 12px }
+    .btn {
+      background: var(--accent);
+      border: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #042828;
+    }
+    .btn.alt {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+    .small { color: var(--muted); font-size: 14px }
+
+    .model-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(2, 6, 23, 0.6);
+      backdrop-filter: blur(6px);
+    }
+    .model-card video {
+      width: 100%;
+      height: 420px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #081018, #061018);
+      object-fit: cover;
+    }
+
+    /* Maleta overlay animation */
+    .suitcase-wrap { position: relative }
+    .suitcase-float { transition: transform .9s cubic-bezier(.2, .9, .3, 1); transform-origin: center }
+    .suitcase-open { transform: translateY(-12px) rotate(-8deg) scale(1.03) }
+
+    /* Portfolio grid (Instagram style) */
+    #portfolio {
+      padding: 36px 6%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .post {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .post video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(180deg, #081018, #061018);
+    }
+    .post .meta {
+      padding: 10px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .post .meta h4 { margin: 0 0 6px; font-size: 15px }
+    .post .meta p { margin: 0; color: var(--muted); font-size: 13px }
+
+    /* Modal for project details */
+    #projectModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 12, 0.7);
+      align-items: center;
+      justify-content: center;
+      z-index: 80;
+      padding: 20px;
+    }
+    #projectModal .modal-content {
+      background: #071018;
+      padding: 20px;
+      border-radius: var(--radius);
+      max-width: 600px;
+      width: 90%;
+      color: #e9f0f6;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+    }
+    #projectModal .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    #projectModal .modal-header .close-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 20px;
+      cursor: pointer;
+    }
+    #projectModal video {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      background: linear-gradient(180deg, #081018, #061018);
+      max-height: 400px;
+    }
+    #projectModal .actions {
+      margin-top: 15px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .hero { grid-template-columns: 1fr }
+      .model-card { order: 2 }
+      #portfolio { grid-template-columns: repeat(1, 1fr) }
+    }
+    @media (max-width: 600px) {
+      #projectModal .modal-content {
+        width: 100%;
+        padding: 15px;
+      }
+      #projectModal video {
+        max-height: 300px;
+      }
+      .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
+      .post video {
+        height: 180px;
+      }
+    }
+
+    /* Testimonials carousel */
+    .testimonials {
+      padding: 36px 6%;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .test-card {
+      background: linear-gradient(180deg, #07161b, #06121a);
+      padding: 18px;
+      border-radius: var(--radius);
+      width: 320px;
+      box-shadow: 0 6px 24px rgba(2, 6, 12, 0.6);
+      text-align: center;
+    }
+    .stars { color: goldenrod; margin-bottom: 8px }
+
+    /* Leaders */
+    .team {
+      padding: 36px 6%;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .leader {
+      background: var(--card);
+      padding: 14px;
+      border-radius: var(--radius);
+      width: 260px;
+      text-align: center;
+    }
+    .leader .more {
+      display: none;
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .leader.open .more { display: block }
+
+    /* Timeline / mapa mental */
+    .timeline {
+      padding: 36px 6%;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .years {
+      min-width: 120px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px;
+      border-radius: var(--radius);
+    }
+    .years button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 700;
+      border-left: 4px solid transparent;
+    }
+    .years button.active {
+      color: #e6f9f7;
+      border-left-color: var(--accent);
+    }
+    .mindmap {
+      flex: 1;
+      min-height: 340px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+      border-radius: var(--radius);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .node {
+      position: absolute;
+      padding: 10px 12px;
+      background: linear-gradient(180deg, #082226, #06343b);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      max-width: 200px;
+    }
+    .node .title { font-weight: 800; font-size: 16px }
+    .node .desc { font-size: 14px; color: var(--muted); margin-top: 6px; display: none }
+    .node.open .desc { display: block }
+
+    /* Footer modernizado */
+    footer {
+      margin-top: auto;
+      padding: 36px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 300px;
+      gap: 18px;
+      background: linear-gradient(180deg, rgba(7, 12, 18, 0.6), rgba(7, 12, 18, 0.45));
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .footer-section h4 { margin: 0 0 10px 0 }
+    .social a { display: inline-block; margin-right: 10px; color: var(--muted); text-decoration: none }
+    .mini-gallery { display: flex; gap: 8px }
+    .mini-gallery img {
+      width: 64px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    /* Micro animations */
+    .fade-up {
+      transform: translateY(10px);
+      opacity: 0;
+      transition: all .6s ease;
+    }
+    .fade-up.show { transform: none; opacity: 1 }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">E</div>
+    <div>
+      <div style="font-weight: 900; letter-spacing: 0.6px">EDBLAD S.A.S.</div>
+      <div style="font-size: 13px; color: var(--muted)">Excelencia en acabados • Desde 2014</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#inicio" onclick="scrollToId('inicio')">Inicio</a>
+    <a href="#portfolio" onclick="scrollToId('portfolio')">Portafolio</a>
+    <a href="#historia" onclick="scrollToId('historia')">Historia</a>
+    <a href="#contacto" onclick="scrollToId('contacto')">Contacto</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-left">
+    <div class="small" style="display: inline-block; padding: 6px 10px; border-radius: 999px; background: linear-gradient(90deg, #052023, #064a49); color: #bff6f2; font-weight: 800">Acabados & Soluciones</div>
+    <h1>Transformamos tus espacios con acabados duraderos y con estilo.</h1>
+    <p class="small">EDBLAD S.A.S. — desde 05-06-2014, combinamos técnica, materiales premium y una pasión por el detalle. Proyectos residenciales y comerciales con enfoque en calidad y diseño.</p>
+    <div class="cta">
+      <button class="btn" onclick="window.open('https://wa.me/573016232176', '_blank')">Solicitar presupuesto</button>
+      <button id="verPortfolioBtn" class="btn alt" onclick="triggerSuitcase()">Ver portafolio</button>
+    </div>
+    <div style="margin-top: 18px; color: var(--muted); font-size: 14px">Servicios: Revestimientos • Pintura técnica • Estucos • Impermeabilización • Consultoría técnica</div>
+  </div>
+  <div class="model-card suitcase-wrap">
+    <img src="edblad-logo.png" alt="EDBLAD Logo" style="width: 100%; height: 420px; border-radius: 12px; object-fit: cover; background: linear-gradient(180deg, #081018, #061018);">
+    <div style="position: absolute; right: 18px; bottom: 18px; width: 120px" id="suitcaseHolder">
+      <model-viewer id="suitcaseModel" src="vintage_suitcase_derivative.glb" alt="Maleta vintage 3D" camera-controls auto-rotate class="suitcase-float" style="width: 120px; height: 90px"></model-viewer>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO (tipo instagram) -->
+<section id="portfolio" class="portfolio fade-up" style="padding-top: 6px">
+  <h2 style="grid-column: 1 / -1; margin: 0 0 12px 6%;">Portafolio — Proyectos destacados</h2>
+  <div style="grid-column: 1 / -1; padding: 0 6% 18px 6%; color: var(--muted)">Haz clic en un video para ver detalles. Filtra por categoría desde los botones.</div>
+  <div style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 6% 36px 6%">
+    <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
+      <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+        <source src="1.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <div class="meta">
+        <h4>Dale vida a tus espacios</h4>
+        <p class="small">Medellín • Acabados</p>
+      </div>
+    </article>
+    <article class="post" onclick="openProject('Acabados que inspiran', 'Calidad y detalle en cada proyecto. Con Edblad, tus espacios brillan con un toque profesional.', 'Medellín', '2.mp4')">
+      <video id="video2" src="2.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+        <source src="2.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <div class="meta">
+        <h4>Acabados que inspiran</h4>
+        <p class="small">Medellín • Acabados</p>
+      </div>
+    </article>
+    <article class="post" onclick="openProject('Haz que tus paredes hablen', 'En Edblad convertimos lo simple en extraordinario. Tus muros merecen lucir impecables.', 'Medellín', '3.mp4')">
+      <video id="video3" src="3.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+        <source src="3.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+      <div class="meta">
+        <h4>Haz que tus paredes hablen</h4>
+        <p class="small">Medellín • Acabados</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials" aria-label="Reseñas">
+  <div class="test-card">
+    <div class="stars">★★★★★</div>
+    <div style="font-weight: 800">María P.</div>
+    <div style="color: var(--muted); margin-top: 8px">"EDBLAD entregó el proyecto a tiempo y con una calidad que superó nuestras expectativas. Recomendados 100%."</div>
+  </div>
+  <div class="test-card">
+    <div class="stars">★★★★★</div>
+    <div style="font-weight: 800">Carlos R. l</div>
+    <div style="color: var(--muted); margin-top: 8px">"Profesionales y muy técnicos. Su trabajo de impermeabilización nos salvó la fachada."</div>
+  </div>
+  <div class="test-card">
+    <div class="stars">★★★★★</div>
+    <div style="font-weight: 800">Sofía L. </div>
+    <div style="color: var(--muted); margin-top: 8px">"Acabados finos y atención al detalle. Volvería a contratarlos sin dudar."</div>
+  </div>
+</section>
+
+<!-- LÍDERES / EQUIPO -->
+<section class="team" id="equipo">
+  <div class="leader" onclick="toggleLeader(this)">
+    <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
+      <div style="width: 56px; height: 56px; border-radius: 10px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900">EM</div>
+      <div>
+        <div style="font-weight: 800">Edwin Martínez</div>
+        <div class="small">Co-fundador • Director técnico</div>
+      </div>
+    </div>
+    <div class="more" style="margin-top: 10px">
+      Edwin lidera el área técnica, validación de materiales y control de calidad. Experto en sistemas de revestimiento y aplicación decorativa.
+    </div>
+  </div>
+  <div class="leader" onclick="toggleLeader(this)">
+    <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
+      <div style="width: 56px; height: 56px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900">BM</div>
+      <div>
+        <div style="font-weight: 800">Bladimir Torres</div>
+        <div class="small">Co-fundador • Gerente comercial</div>
+      </div>
+    </div>
+    <div class="more" style="margin-top: 10px">
+      Bladimir maneja las relaciones con clientes y crecimiento comercial. Responsable de la expansión hacia Medellín y alianzas estratégicas.
+    </div>
+  </div>
+  <div class="leader" onclick="toggleLeader(this)">
+    <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
+      <div style="width: 56px; height: 56px; border-radius: 10px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900">SM</div>
+      <div>
+        <div style="font-weight: 800">Samuel Martínez</div>
+        <div class="small">Jefe de proyectos y gestión de la calidad</div>
+      </div>
+    </div>
+    <div class="more" style="margin-top: 10px">
+      Coordina equipos, cronogramas y supervisa la ejecución en obra, asegurando calidad y tiempos de entrega.
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA / TIMELINE (MAPA MENTAL SIMPLE) -->
+<section id="historia" style="padding-bottom: 36px">
+  <h2 style="padding: 36px 6% 0 6%;">Nuestra historia — 2014 → 2025</h2>
+  <div class="timeline">
+    <div class="years" id="yearsList">
+      <!-- Buttons generated by JS -->
+    </div>
+    <div class="mindmap" id="mindmap">
+      <!-- Nodes of the mind map generated by JS -->
+      <div style="position: absolute; left: 18px; top: 18px; color: var(--muted)">Haz clic en un año para ver su evento</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO / FOOTER -->
+<footer id="contacto">
+  <div class="footer-section">
+    <h4>EDBLAD S.A.S.</h4>
+    <div style="color: var(--muted); margin-bottom: 12px">edbladsas@gmail.com • +57 301 623 2176</div>
+    <div style="display: flex; gap: 8px">
+      <a class="btn" href="https://wa.me/573016232176" target="_blank">WhatsApp</a>
+      <a class="btn alt" href="#portfolio" onclick="triggerSuitcase()">Ver portafolio</a>
+    </div>
+  </div>
+  <div class="footer-section">
+    <h4>Enlaces rápidos</h4>
+    <div style="display: flex; flex-direction: column; gap: 8px; color: var(--muted)">
+      <a href="#equipo" onclick="scrollToId('equipo')">Equipo</a>
+      <a href="#historia" onclick="scrollToId('historia')">Historia</a>
+      <a href="#portfolio" onclick="scrollToId('portfolio')">Proyectos</a>
+    </div>
+  </div>
+  <div class="footer-section" style="text-align: right">
+    <h4>Síguenos</h4>
+    <div class="social" style="margin-bottom: 12px">
+      <a href="https://www.instagram.com/edblad_lo_mejor_en_acabados?igsh=b2R5b2lzc3ViMHcy" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@edblad.sas?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
+    </div>
+    <h4 style="margin-top: 10px">Mini galería</h4>
+    <div class="mini-gallery" style="justify-content: flex-end">
+      <img src="11.png" alt="">
+      <img src="22.png" alt="">
+      <img src="12.png" alt="">
+    </div>
+    <div style="margin-top: 14px; color: var(--muted); font-size: 13px">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
+  </div>
+</footer>
+
+<!-- Modal for project details -->
+<div id="projectModal" style="display: none; position: fixed; inset: 0; background: rgba(2, 6, 12, 0.7); align-items: center; justify-content: center; z-index: 80; padding: 20px;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div style="font-weight: 800" id="pmTitle"></div>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div id="pmBody"></div>
+    <div class="actions">
+      <a class="btn" href="https://wa.me/573016232176" target="_blank">Solicitar info</a>
+      <button class="btn alt" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* -------------------------
+  Helpers: scroll and modal
+--------------------------*/
+function scrollToId(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function openProject(title, desc, location, videoSrc) {
+  const modal = document.getElementById('projectModal');
+  const pmTitle = document.getElementById('pmTitle');
+  const pmBody = document.getElementById('pmBody');
+
+  pmTitle.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(90deg, #0b84ff, #0ea5a4);"></div>
+      <div>
+        <div style="font-weight: 800">${title}</div>
+        <div style="color: var(--muted); font-size: 13px">${location}</div>
+      </div>
+    </div>
+  `;
+  pmBody.innerHTML = `
+    <video src="${videoSrc}" autoplay muted controls style="width: 100%; border-radius: var(--radius); margin-bottom: 10px; background: linear-gradient(180deg, #081018, #061018); max-height: 400px;">
+      <source src="${videoSrc}" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    <div style="color: var(--muted); font-size: 13px">${desc}</div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px">
+      <span style="color: #ed4956">♥ ${Math.floor(Math.random() * 10000)} Like</span>
+      <span style="color: var(--muted)">EDBLAD - lo mejor en acabados</span>
+    </div>
+    <div style="margin-top: 10px; color: var(--muted); font-size: 13px">Hace ${Math.floor(Math.random() * 24)}h</div>
+  `;
+
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('projectModal').style.display = 'none';
+}
+
+/* -------------------------
+  Suitcase animation + nav
+--------------------------*/
+const verBtn = document.getElementById('verPortfolioBtn');
+const suitcaseEl = document.getElementById('suitcaseModel');
+const suitcaseHolder = document.getElementById('suitcaseHolder');
+
+function triggerSuitcase() {
+  suitcaseEl.classList.add('suitcase-open');
+  setTimeout(() => { suitcaseEl.classList.remove('suitcase-open'); }, 1100);
+  setTimeout(() => { document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' }); }, 300);
+}
+
+/* -------------------------
+  Leaders toggle
+--------------------------*/
+function toggleLeader(el) {
+  el.classList.toggle('open');
+}
+
+/* -------------------------
+  Timeline / mapa mental
+--------------------------*/
+const timelineData = {
+  2014: { title: 'Fundación', loc: 'Costa', text: '05-06-2014 — Edwin y Bladimir fundan EDBLAD en Barranquilla, comenzando con pequeños proyectos en la costa.' },
+  2015: { title: 'Primeros pasos', loc: 'Costa', text: 'Primer trabajo en Barranquilla, ganando confianza con clientes locales en la costa.' },
+  2016: { title: 'Crecimiento local', loc: 'Costa', text: 'Expansión a Cartagena y Santa Marta, tomando más proyectos residenciales en la costa.' },
+  2017: { title: 'Fortalecimiento', loc: 'Costa', text: 'Aumentan su equipo en la costa, enfocándose en mejorar la calidad de los acabados.' },
+  2018: { title: 'Nuevos métodos', loc: 'Costa', text: 'Introducen técnicas innovadoras de pintura, atrayendo más clientes en la costa.' },
+  2019: { title: 'Reconocimiento', loc: 'Costa', text: 'Se hacen conocidos por su dedicación en proyectos costeros, consolidando su reputación.' },
+  2020: { title: 'Resiliencia', loc: 'Costa', text: 'A pesar de los retos, mantienen su trabajo en la costa con adaptaciones creativas.' },
+  2021: { title: 'Llegada a Medellín', loc: 'Antioquia', text: 'Inician operaciones en Medellín, explorando nuevas oportunidades en Antioquia.' },
+  2022: { title: 'Crecimiento en Antioquia', loc: 'Antioquia', text: 'Aumentan su presencia en Medellín y zonas cercanas con más proyectos.' },
+  2023: { title: 'Consolidación', loc: 'Antioquia', text: 'Fortalecen su equipo en Medellín, estableciéndose firmemente en Antioquia.' },
+  2024: { title: 'Expansión continua', loc: 'Antioquia', text: 'Siguen creciendo en Antioquia, tomando proyectos más grandes en Medellín.' },
+  2025: { title: 'Progreso sostenido', loc: 'Antioquia', text: 'Continúan avanzando en Antioquia, manteniendo su base en Medellín hasta el día de hoy.' }
+};
+
+const yearsList = document.getElementById('yearsList');
+const mindmap = document.getElementById('mindmap');
+
+// Generate year buttons
+for (let y = 2014; y <= 2025; y++) {
+  const btn = document.createElement('button');
+  btn.innerText = y;
+  btn.dataset.year = y;
+  btn.onclick = () => selectYear(y);
+  yearsList.appendChild(btn);
+}
+
+// Select default year
+function selectYear(year) {
+  Array.from(yearsList.querySelectorAll('button')).forEach(b => b.classList.toggle('active', b.dataset.year == year));
+  mindmap.innerHTML = '';
+  const center = createNode((timelineData[year] || { title: year }).title + ' • ' + (timelineData[year] ? timelineData[year].loc : '—'), (timelineData[year] || { text: 'Evento no disponible.' }).text, 40, 40, true);
+  mindmap.appendChild(center);
+  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 250, 40, false);
+  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 40, 200, false);
+  mindmap.appendChild(impacto);
+  mindmap.appendChild(evolucion);
+  setTimeout(() => {
+    [center, impacto, evolucion].forEach((node, i) => {
+      node.style.transform = 'translateY(0)';
+      node.style.opacity = '1';
+    });
+  }, 50);
+}
+
+function createNode(title, desc, x, y, isCenter) {
+  const el = document.createElement('div');
+  el.className = 'node';
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  el.style.transform = 'translateY(6px)';
+  el.style.opacity = '0.98';
+  if (isCenter) {
+    el.style.background = 'linear-gradient(90deg, #064a49, #052023)';
+    el.style.fontSize = '16px';
+    el.style.padding = '12px 16px';
+  }
+  el.innerHTML = `<div class="title">${title}</div><div class="desc">${desc}</div>`;
+  el.onclick = () => el.classList.toggle('open');
+  return el;
+}
+
+selectYear(2014);
+
+/* -------------------------
+  Video Debugging
+--------------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+  const videos = document.querySelectorAll('video');
+  videos.forEach(video => {
+    video.addEventListener('loadeddata', () => {
+      console.log(`Video ${video.id} loaded successfully`);
+    });
+    video.addEventListener('error', (e) => {
+      console.error(`Error loading video ${video.id}:`, e);
+    });
+  });
+});
+
+/* -------------------------
+  Micro effect for scroll visibility
+--------------------------*/
+document.addEventListener('scroll', () => {
+  document.querySelectorAll('.fade-up').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) el.classList.add('show');
+  });
+});
+</script>
+</body>
+</html>

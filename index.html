@@ -32,7 +32,10 @@
       flex-direction: column;
       min-height: 100vh;
       overflow-x: hidden;
-      transition: overflow 0.3s ease;
+    }
+    .content-wrapper {
+      position: relative;
+      min-height: 100vh;
     }
     a { color: inherit }
     header {
@@ -264,9 +267,9 @@
       .menu-toggle { display: flex }
       header { padding: 12px 6% }
       .hero-left { max-width: 520px; margin: 0 auto }
-      .model-card img { height: 420px }
-      .post video { height: 220px }
-      .mindmap { min-height: 300px }
+      .model-card img { height: 320px }
+      .post video { height: 180px }
+      .mindmap { min-height: 250px }
     }
     @media (max-width: 600px) {
       #projectModal .modal-content {
@@ -274,20 +277,21 @@
         padding: 10px;
       }
       #projectModal video {
-        max-height: 250px;
+        max-height: 200px;
       }
       .btn {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 6px 10px;
+        font-size: 12px;
       }
       .post video {
-        height: 180px;
+        height: 150px;
       }
-      .test-card { width: 100%; margin-bottom: 10px }
-      .leader { width: 100%; margin-bottom: 10px }
+      .test-card { width: 100%; margin-bottom: 8px }
+      .leader { width: 100%; margin-bottom: 8px }
       footer { grid-template-columns: 1fr; text-align: center }
-      .footer-section { margin-bottom: 20px }
+      .footer-section { margin-bottom: 15px }
       .mini-gallery { justify-content: center }
+      .model-card img { height: 280px }
     }
 
     /* Testimonials carousel */
@@ -363,7 +367,7 @@
     }
     .mindmap {
       flex: 1;
-      min-height: 300px;
+      min-height: 250px;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
       border-radius: var(--radius);
       padding: 18px;
@@ -372,15 +376,15 @@
     }
     .node {
       position: absolute;
-      padding: 10px 12px;
+      padding: 8px 10px;
       background: linear-gradient(180deg, #082226, #06343b);
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.03);
       cursor: pointer;
-      max-width: 180px;
+      max-width: 160px;
     }
-    .node .title { font-weight: 800; font-size: 14px }
-    .node .desc { font-size: 12px; color: var(--muted); margin-top: 6px; display: none }
+    .node .title { font-weight: 800; font-size: 13px }
+    .node .desc { font-size: 11px; color: var(--muted); margin-top: 4px; display: none }
     .node.open .desc { display: block }
 
     /* Footer modernizado */
@@ -413,7 +417,7 @@
   </style>
 </head>
 <body>
-
+<div class="content-wrapper">
 <header>
   <div class="brand">
     <div class="logo">E</div>
@@ -466,7 +470,7 @@
 <section id="portfolio" class="portfolio fade-up" style="padding-top: 6px">
   <h2 style="grid-column: 1 / -1; margin: 0 0 12px 6%;">Portafolio — Proyectos destacados</h2>
   <div style="grid-column: 1 / -1; padding: 0 6% 18px 6%; color: var(--muted)">Haz clic en un video para ver detalles. Filtra por categoría desde los botones.</div>
-  <div style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 6% 24px 6%">
+  <div style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 6% 24px 6%">
     <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
       <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="1.mp4" type="video/mp4">
@@ -621,6 +625,7 @@
     </div>
   </div>
 </div>
+</div>
 
 <script>
 /* -------------------------
@@ -720,8 +725,8 @@ function selectYear(year) {
   mindmap.innerHTML = '';
   const center = createNode((timelineData[year] || { title: year }).title + ' • ' + (timelineData[year] ? timelineData[year].loc : '—'), (timelineData[year] || { text: 'Evento no disponible.' }).text, 40, 40, true);
   mindmap.appendChild(center);
-  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 200, 40, false);
-  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 40, 150, false);
+  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 180, 40, false);
+  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 40, 130, false);
   mindmap.appendChild(impacto);
   mindmap.appendChild(evolucion);
   setTimeout(() => {
@@ -741,8 +746,8 @@ function createNode(title, desc, x, y, isCenter) {
   el.style.opacity = '0.98';
   if (isCenter) {
     el.style.background = 'linear-gradient(90deg, #064a49, #052023)';
-    el.style.fontSize = '14px';
-    el.style.padding = '10px 14px';
+    el.style.fontSize = '13px';
+    el.style.padding = '8px 12px';
   }
   el.innerHTML = `<div class="title">${title}</div><div class="desc">${desc}</div>`;
   el.onclick = () => el.classList.toggle('open');
@@ -786,7 +791,7 @@ function toggleMenu() {
   const isActive = toggle.classList.toggle('active');
   mobileNav.classList.toggle('active', isActive);
   backdrop.classList.toggle('active', isActive);
-  document.body.style.overflow = isActive ? 'hidden' : '';
+  document.body.style.overflow = isActive ? 'hidden' : 'auto';
 }
 </script>
 </body>

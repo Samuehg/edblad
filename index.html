@@ -134,7 +134,7 @@
     }
     .post video {
       width: 100%;
-      height: clamp(150px, 40vw, 220px);
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       display: block;
       background: linear-gradient(180deg, #081018, #061018);
@@ -186,6 +186,7 @@
     }
     #projectModal video {
       width: 100%;
+      aspect-ratio: 16 / 9;
       border-radius: var(--radius);
       margin-bottom: 10px;
       background: linear-gradient(180deg, #081018, #061018);
@@ -331,11 +332,12 @@
       header { padding: 20px 6% }
       .hero { padding: 48px 6% }
       .model-card { padding: 18px }
-      #portfolio { padding: 36px 6% }
+      #portfolio { padding: 36px 6%; grid-template-columns: repeat(3, 1fr) }
       .testimonials { padding: 36px 6% }
       .team { padding: 36px 6% }
       .timeline { padding: 36px 6% }
       footer { padding: 36px 6% }
+      .post video { max-height: 300px }
     }
     @media (max-width: 480px) {
       .btn { padding: 8px 12px }

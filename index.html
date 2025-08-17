@@ -32,6 +32,7 @@
       flex-direction: column;
       min-height: 100vh;
       overflow-x: hidden;
+      transition: overflow 0.3s ease;
     }
     a { color: inherit }
     header {
@@ -89,22 +90,40 @@
       display: none;
       position: fixed;
       top: 0;
-      right: 0;
-      height: 100vh;
-      width: 250px;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(7, 18, 26, 0.95);
       backdrop-filter: blur(6px);
-      padding: 60px 20px 20px;
+      z-index: 50;
+      padding: 60px 20px;
       flex-direction: column;
       align-items: flex-start;
-      transform: translateX(100%);
+      transform: translateX(-100%);
       transition: transform 0.3s ease;
     }
-    .mobile-nav.active { transform: translateX(0); }
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
+    .mobile-nav-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 49;
+    }
+    .mobile-nav.active + .mobile-nav-backdrop {
+      display: block;
+    }
     .mobile-nav a {
       display: block;
       margin: 15px 0;
       font-size: 16px;
+      color: #e9f0f6;
+      text-decoration: none;
     }
     .hero {
       display: grid;
@@ -238,12 +257,15 @@
 
     /* Responsive */
     @media (max-width: 1000px) {
-      .hero { grid-template-columns: 1fr }
-      .model-card { order: 2 }
-      #portfolio { grid-template-columns: repeat(1, 1fr) }
+      .hero { grid-template-columns: 1fr; padding: 24px 6% }
+      .model-card { order: 2; margin-top: 24px }
+      #portfolio { grid-template-columns: 1fr; padding: 24px 6% }
       nav { display: none }
       .menu-toggle { display: flex }
       header { padding: 15px 6% }
+      .hero-left { max-width: 520px; margin: 0 auto }
+      .model-card img { height: 420px }
+      .post video { height: 220px }
     }
     @media (max-width: 600px) {
       #projectModal .modal-content {
@@ -260,6 +282,8 @@
       .post video {
         height: 180px;
       }
+      .test-card { width: 100%; margin-bottom: 14px }
+      .leader { width: 100%; margin-bottom: 14px }
     }
 
     /* Testimonials carousel */
@@ -411,6 +435,7 @@
     <a href="#historia" onclick="scrollToId('historia'); toggleMenu()">Historia</a>
     <a href="#contacto" onclick="scrollToId('contacto'); toggleMenu()">Contacto</a>
   </nav>
+  <div class="mobile-nav-backdrop" onclick="toggleMenu()"></div>
 </header>
 
 <!-- HERO -->
@@ -563,7 +588,7 @@
     </div>
   </div>
   <div class="footer-section" style="text-align: right">
-    <h4>Síguenos</h4>
+    <h2>Síguenos</h2>
     <div class="social" style="margin-bottom: 12px">
       <a href="https://www.instagram.com/edblad_lo_mejor_en_acabados?igsh=b2R5b2lzc3ViMHcy" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@edblad.sas?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
@@ -753,8 +778,11 @@ document.addEventListener('scroll', () => {
 function toggleMenu() {
   const toggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
-  toggle.classList.toggle('active');
-  mobileNav.classList.toggle('active');
+  const backdrop = document.querySelector('.mobile-nav-backdrop');
+  const isActive = toggle.classList.toggle('active');
+  mobileNav.classList.toggle('active', isActive);
+  backdrop.classList.toggle('active', isActive);
+  document.body.style.overflow = isActive ? 'hidden' : '';
 }
 </script>
 </body>

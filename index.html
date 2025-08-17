@@ -34,7 +34,7 @@
     }
     a { color: inherit }
     header {
-      padding: 20px 6%;
+      padding: 15px 4%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -44,69 +44,71 @@
       backdrop-filter: blur(6px);
       z-index: 40;
     }
-    .brand { display: flex; gap: 12px; align-items: center }
+    .brand { display: flex; gap: 10px; align-items: center }
     .logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
       background: linear-gradient(135deg, var(--accent), #0b84ff);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
       color: #042828;
-      font-size: 20px;
+      font-size: 18px;
     }
     nav a {
       color: var(--muted);
-      margin-left: 18px;
+      margin-left: 12px;
       text-decoration: none;
       font-weight: 700;
       font-size: 14px;
     }
     .hero {
       display: grid;
-      grid-template-columns: 1fr 520px;
-      gap: 36px;
+      grid-template-columns: 1fr;
+      gap: 24px;
       align-items: center;
-      padding: 48px 6%;
+      padding: 40px 4%;
     }
     .hero-left h1 {
-      font-size: 44px;
+      font-size: clamp(24px, 6vw, 44px);
       margin: 0 0 12px 0;
-      line-height: 1.02;
+      line-height: 1.2;
     }
-    .hero-left p { color: var(--muted); margin: 0 0 18px }
-    .cta { display: flex; gap: 12px; margin-top: 12px }
+    .hero-left p { color: var(--muted); margin: 0 0 12px }
+    .cta { display: flex; gap: 10px; margin-top: 12px }
     .btn {
       background: var(--accent);
       border: none;
-      padding: 12px 18px;
+      padding: 10px 16px;
       border-radius: 12px;
       font-weight: 800;
       cursor: pointer;
       color: #042828;
+      font-size: clamp(12px, 2vw, 16px);
     }
     .btn.alt {
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.06);
       color: var(--muted);
     }
-    .small { color: var(--muted); font-size: 14px }
+    .small { color: var(--muted); font-size: clamp(12px, 2vw, 14px) }
 
     .model-card {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-      padding: 18px;
+      padding: 15px;
       border-radius: 16px;
       box-shadow: 0 8px 28px rgba(2, 6, 23, 0.6);
       backdrop-filter: blur(6px);
-    }
-    .model-card video {
       width: 100%;
-      height: 420px;
+    }
+    .model-card img {
+      width: 100%;
+      height: clamp(200px, 40vw, 420px);
       border-radius: 12px;
-      background: linear-gradient(180deg, #081018, #061018);
       object-fit: cover;
+      background: linear-gradient(180deg, #081018, #061018);
     }
 
     /* Maleta overlay animation */
@@ -116,10 +118,10 @@
 
     /* Portfolio grid (Instagram style) */
     #portfolio {
-      padding: 36px 6%;
+      padding: 24px 4%;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
     }
     .post {
       background: var(--card);
@@ -132,20 +134,20 @@
     }
     .post video {
       width: 100%;
-      height: 220px;
+      height: clamp(150px, 40vw, 220px);
       object-fit: cover;
       display: block;
       background: linear-gradient(180deg, #081018, #061018);
     }
     .post .meta {
-      padding: 10px;
+      padding: 8px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .post .meta h4 { margin: 0 0 6px; font-size: 15px }
-    .post .meta p { margin: 0; color: var(--muted); font-size: 13px }
+    .post .meta h4 { margin: 0 0 6px; font-size: clamp(12px, 2.5vw, 15px) }
+    .post .meta p { margin: 0; color: var(--muted); font-size: clamp(10px, 2vw, 13px) }
 
     /* Modal for project details */
     #projectModal {
@@ -156,14 +158,16 @@
       align-items: center;
       justify-content: center;
       z-index: 80;
-      padding: 20px;
+      padding: 10px;
     }
     #projectModal .modal-content {
       background: #071018;
-      padding: 20px;
+      padding: 15px;
       border-radius: var(--radius);
-      max-width: 600px;
-      width: 90%;
+      max-width: 90%;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
       color: #e9f0f6;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
     }
@@ -171,7 +175,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     #projectModal .modal-header .close-btn {
       background: transparent;
@@ -185,52 +189,29 @@
       border-radius: var(--radius);
       margin-bottom: 10px;
       background: linear-gradient(180deg, #081018, #061018);
-      max-height: 400px;
+      max-height: clamp(200px, 50vw, 400px);
     }
     #projectModal .actions {
-      margin-top: 15px;
+      margin-top: 10px;
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
-    }
-
-    /* Responsive */
-    @media (max-width: 1000px) {
-      .hero { grid-template-columns: 1fr }
-      .model-card { order: 2 }
-      #portfolio { grid-template-columns: repeat(1, 1fr) }
-    }
-    @media (max-width: 600px) {
-      #projectModal .modal-content {
-        width: 100%;
-        padding: 15px;
-      }
-      #projectModal video {
-        max-height: 300px;
-      }
-      .btn {
-        padding: 8px 12px;
-        font-size: 14px;
-      }
-      .post video {
-        height: 180px;
-      }
+      gap: 8px;
     }
 
     /* Testimonials carousel */
     .testimonials {
-      padding: 36px 6%;
+      padding: 24px 4%;
       display: flex;
-      gap: 14px;
+      gap: 12px;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
     }
     .test-card {
       background: linear-gradient(180deg, #07161b, #06121a);
-      padding: 18px;
+      padding: 15px;
       border-radius: var(--radius);
-      width: 320px;
+      width: clamp(250px, 80vw, 320px);
       box-shadow: 0 6px 24px rgba(2, 6, 12, 0.6);
       text-align: center;
     }
@@ -238,51 +219,52 @@
 
     /* Leaders */
     .team {
-      padding: 36px 6%;
+      padding: 24px 4%;
       display: flex;
-      gap: 18px;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
     .leader {
       background: var(--card);
-      padding: 14px;
+      padding: 12px;
       border-radius: var(--radius);
-      width: 260px;
+      width: clamp(200px, 80vw, 260px);
       text-align: center;
     }
     .leader .more {
       display: none;
-      padding-top: 10px;
+      padding-top: 8px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: clamp(12px, 2vw, 14px);
     }
     .leader.open .more { display: block }
 
     /* Timeline / mapa mental */
     .timeline {
-      padding: 36px 6%;
+      padding: 24px 4%;
       display: flex;
-      gap: 18px;
+      gap: 12px;
       align-items: flex-start;
     }
     .years {
-      min-width: 120px;
+      min-width: 100px;
       background: rgba(255, 255, 255, 0.02);
-      padding: 12px;
+      padding: 10px;
       border-radius: var(--radius);
     }
     .years button {
       display: block;
       width: 100%;
       text-align: left;
-      padding: 8px;
+      padding: 6px;
       border: none;
       background: transparent;
       color: var(--muted);
       cursor: pointer;
       font-weight: 700;
       border-left: 4px solid transparent;
+      font-size: clamp(12px, 2vw, 14px);
     }
     .years button.active {
       color: #e6f9f7;
@@ -290,42 +272,42 @@
     }
     .mindmap {
       flex: 1;
-      min-height: 340px;
+      min-height: clamp(200px, 40vh, 340px);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
       border-radius: var(--radius);
-      padding: 18px;
+      padding: 15px;
       position: relative;
       overflow: hidden;
     }
     .node {
       position: absolute;
-      padding: 10px 12px;
+      padding: 8px 10px;
       background: linear-gradient(180deg, #082226, #06343b);
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.03);
       cursor: pointer;
-      max-width: 200px;
+      max-width: clamp(150px, 40vw, 200px);
     }
-    .node .title { font-weight: 800; font-size: 16px }
-    .node .desc { font-size: 14px; color: var(--muted); margin-top: 6px; display: none }
+    .node .title { font-weight: 800; font-size: clamp(12px, 2.5vw, 16px) }
+    .node .desc { font-size: clamp(10px, 2vw, 14px); color: var(--muted); margin-top: 6px; display: none }
     .node.open .desc { display: block }
 
     /* Footer modernizado */
     footer {
       margin-top: auto;
-      padding: 36px 6%;
+      padding: 24px 4%;
       display: grid;
-      grid-template-columns: 1fr 1fr 300px;
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 12px;
       background: linear-gradient(180deg, rgba(7, 12, 18, 0.6), rgba(7, 12, 18, 0.45));
       border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
-    .footer-section h4 { margin: 0 0 10px 0 }
-    .social a { display: inline-block; margin-right: 10px; color: var(--muted); text-decoration: none }
-    .mini-gallery { display: flex; gap: 8px }
+    .footer-section h4 { margin: 0 0 8px 0 }
+    .social a { display: inline-block; margin-right: 8px; color: var(--muted); text-decoration: none }
+    .mini-gallery { display: flex; gap: 6px }
     .mini-gallery img {
-      width: 64px;
-      height: 48px;
+      width: clamp(50px, 15vw, 64px);
+      height: clamp(40px, 12vw, 48px);
       object-fit: cover;
       border-radius: var(--radius);
     }
@@ -337,6 +319,32 @@
       transition: all .6s ease;
     }
     .fade-up.show { transform: none; opacity: 1 }
+
+    /* Enhanced Responsive Design */
+    @media (min-width: 768px) {
+      .hero { grid-template-columns: 1fr 40vw }
+      .model-card img { height: clamp(250px, 40vw, 420px) }
+      #portfolio { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) }
+      footer { grid-template-columns: 1fr 1fr 300px }
+    }
+    @media (min-width: 1024px) {
+      header { padding: 20px 6% }
+      .hero { padding: 48px 6% }
+      .model-card { padding: 18px }
+      #portfolio { padding: 36px 6% }
+      .testimonials { padding: 36px 6% }
+      .team { padding: 36px 6% }
+      .timeline { padding: 36px 6% }
+      footer { padding: 36px 6% }
+    }
+    @media (max-width: 480px) {
+      .btn { padding: 8px 12px }
+      .post video { height: clamp(120px, 35vw, 180px) }
+      .test-card { width: 100% }
+      .leader { width: 100% }
+      .years { min-width: 80px }
+      .mindmap { min-height: clamp(150px, 40vh, 200px) }
+    }
   </style>
 </head>
 <body>
@@ -370,20 +378,20 @@
     <div style="margin-top: 18px; color: var(--muted); font-size: 14px">Servicios: Revestimientos • Pintura técnica • Estucos • Impermeabilización • Consultoría técnica</div>
   </div>
   <div class="model-card suitcase-wrap">
-    <img src="edblad-logo.png" alt="EDBLAD Logo" style="width: 100%; height: 420px; border-radius: 12px; object-fit: cover; background: linear-gradient(180deg, #081018, #061018);">
-    <div style="position: absolute; right: 18px; bottom: 18px; width: 120px" id="suitcaseHolder">
-      <model-viewer id="suitcaseModel" src="vintage_suitcase_derivative.glb" alt="Maleta vintage 3D" camera-controls auto-rotate class="suitcase-float" style="width: 120px; height: 90px"></model-viewer>
+    <img src="edblad-logo.png" alt="EDBLAD Logo" style="width: 100%; border-radius: 12px; object-fit: cover; background: linear-gradient(180deg, #081018, #061018);">
+    <div style="position: absolute; right: 15px; bottom: 15px; width: clamp(80px, 20vw, 120px)" id="suitcaseHolder">
+      <model-viewer id="suitcaseModel" src="vintage_suitcase_derivative.glb" alt="Maleta vintage 3D" camera-controls auto-rotate class="suitcase-float" style="width: 100%; height: auto; aspect-ratio: 4 / 3;"></model-viewer>
     </div>
   </div>
 </section>
 
 <!-- PORTFOLIO (tipo instagram) -->
-<section id="portfolio" class="portfolio fade-up" style="padding-top: 6px">
-  <h2 style="grid-column: 1 / -1; margin: 0 0 12px 6%;">Portafolio — Proyectos destacados</h2>
-  <div style="grid-column: 1 / -1; padding: 0 6% 18px 6%; color: var(--muted)">Haz clic en un video para ver detalles. Filtra por categoría desde los botones.</div>
-  <div style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 6% 36px 6%">
+<section id="portfolio" class="portfolio fade-up">
+  <h2 style="margin: 0 0 12px 4%;">Portafolio — Proyectos destacados</h2>
+  <div style="padding: 0 4% 12px 4%; color: var(--muted)">Haz clic en un video para ver detalles.</div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; padding: 0 4% 24px 4%">
     <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
-      <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+      <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="1.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
       </video>
@@ -393,7 +401,7 @@
       </div>
     </article>
     <article class="post" onclick="openProject('Acabados que inspiran', 'Calidad y detalle en cada proyecto. Con Edblad, tus espacios brillan con un toque profesional.', 'Medellín', '2.mp4')">
-      <video id="video2" src="2.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+      <video id="video2" src="2.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="2.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
       </video>
@@ -403,7 +411,7 @@
       </div>
     </article>
     <article class="post" onclick="openProject('Haz que tus paredes hablen', 'En Edblad convertimos lo simple en extraordinario. Tus muros merecen lucir impecables.', 'Medellín', '3.mp4')">
-      <video id="video3" src="3.mp4" autoplay muted loop style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+      <video id="video3" src="3.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="3.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
       </video>
@@ -424,12 +432,12 @@
   </div>
   <div class="test-card">
     <div class="stars">★★★★★</div>
-    <div style="font-weight: 800">Carlos R. l</div>
+    <div style="font-weight: 800">Carlos R.</div>
     <div style="color: var(--muted); margin-top: 8px">"Profesionales y muy técnicos. Su trabajo de impermeabilización nos salvó la fachada."</div>
   </div>
   <div class="test-card">
     <div class="stars">★★★★★</div>
-    <div style="font-weight: 800">Sofía L. </div>
+    <div style="font-weight: 800">Sofía L.</div>
     <div style="color: var(--muted); margin-top: 8px">"Acabados finos y atención al detalle. Volvería a contratarlos sin dudar."</div>
   </div>
 </section>
@@ -438,7 +446,7 @@
 <section class="team" id="equipo">
   <div class="leader" onclick="toggleLeader(this)">
     <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 10px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900">EM</div>
+      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900">EM</div>
       <div>
         <div style="font-weight: 800">Edwin Martínez</div>
         <div class="small">Co-fundador • Director técnico</div>
@@ -450,7 +458,7 @@
   </div>
   <div class="leader" onclick="toggleLeader(this)">
     <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900">BM</div>
+      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900">BM</div>
       <div>
         <div style="font-weight: 800">Bladimir Torres</div>
         <div class="small">Co-fundador • Gerente comercial</div>
@@ -462,7 +470,7 @@
   </div>
   <div class="leader" onclick="toggleLeader(this)">
     <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 10px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900">SM</div>
+      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900">SM</div>
       <div>
         <div style="font-weight: 800">Samuel Martínez</div>
         <div class="small">Jefe de proyectos y gestión de la calidad</div>
@@ -475,15 +483,15 @@
 </section>
 
 <!-- HISTORIA / TIMELINE (MAPA MENTAL SIMPLE) -->
-<section id="historia" style="padding-bottom: 36px">
-  <h2 style="padding: 36px 6% 0 6%;">Nuestra historia — 2014 → 2025</h2>
+<section id="historia" style="padding-bottom: 24px">
+  <h2 style="padding: 24px 4% 0 4%;">Nuestra historia — 2014 → 2025</h2>
   <div class="timeline">
     <div class="years" id="yearsList">
       <!-- Buttons generated by JS -->
     </div>
     <div class="mindmap" id="mindmap">
       <!-- Nodes of the mind map generated by JS -->
-      <div style="position: absolute; left: 18px; top: 18px; color: var(--muted)">Haz clic en un año para ver su evento</div>
+      <div style="position: absolute; left: 15px; top: 15px; color: var(--muted)">Haz clic en un año para ver su evento</div>
     </div>
   </div>
 </section>
@@ -518,12 +526,12 @@
       <img src="22.png" alt="">
       <img src="12.png" alt="">
     </div>
-    <div style="margin-top: 14px; color: var(--muted); font-size: 13px">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
+    <div style="margin-top: 12px; color: var(--muted); font-size: 13px">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
   </div>
 </footer>
 
 <!-- Modal for project details -->
-<div id="projectModal" style="display: none; position: fixed; inset: 0; background: rgba(2, 6, 12, 0.7); align-items: center; justify-content: center; z-index: 80; padding: 20px;">
+<div id="projectModal" style="display: none; position: fixed; inset: 0; background: rgba(2, 6, 12, 0.7); align-items: center; justify-content: center; z-index: 80; padding: 10px;">
   <div class="modal-content">
     <div class="modal-header">
       <div style="font-weight: 800" id="pmTitle"></div>
@@ -560,7 +568,7 @@ function openProject(title, desc, location, videoSrc) {
     </div>
   `;
   pmBody.innerHTML = `
-    <video src="${videoSrc}" autoplay muted controls style="width: 100%; border-radius: var(--radius); margin-bottom: 10px; background: linear-gradient(180deg, #081018, #061018); max-height: 400px;">
+    <video src="${videoSrc}" autoplay muted controls style="width: 100%; border-radius: var(--radius); margin-bottom: 10px; background: linear-gradient(180deg, #081018, #061018);">
       <source src="${videoSrc}" type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
@@ -664,7 +672,7 @@ function createNode(title, desc, x, y, isCenter) {
   return el;
 }
 
-selectYear(2014);
+selectYear(2025);
 
 /* -------------------------
   Video Debugging

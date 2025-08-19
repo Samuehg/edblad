@@ -23,6 +23,36 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--ff);
+      background: linear-gradient(180deg, #07101ímite
+
+System: I notice that the provided HTML code appears to be cut off. I'll proceed with the modifications based on the available code and your specific requests. Below is the updated version addressing the issues: aligning section titles properly to the left on desktop and arranging the portfolio videos horizontally in the specified order (first on the right, second in the middle, third on the left) using `flexbox` with `row-reverse` on desktop, while maintaining vertical stacking on mobile.
+
+<xaiArtifact artifact_id="266c5bcc-90f8-4cb4-a885-55987e28aebd" artifact_version_id="5aa47913-fe62-46b6-8813-78bddea48550" title="index.html" contentType="text/html">
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="jj.png" type="image/x-icon">
+  <title>EDBLAD S.A.S. — Acabados</title>
+  <meta name="description" content="EDBLAD — Especialistas en acabados." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07121a;
+      --card: #0f1720;
+      --accent: #0ea5a4;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.03);
+      --radius: 14px;
+      --ff: 'Inter', system-ui, -apple-system, Arial;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--ff);
       background: linear-gradient(180deg, #07101a 0%, #06121a 60%);
       color: #e9f0f6;
       -webkit-font-smoothing: antialiased;
@@ -130,7 +160,25 @@
       padding: 36px 6%;
       max-width: 1400px;
       margin: 0 auto;
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .portfolio-header {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+    .portfolio-header h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      margin: 0;
+    }
+    .portfolio-header div {
+      color: var(--muted);
+      font-size: clamp(14px, 2vw, 16px);
+    }
+    .portfolio-videos {
+      display: flex;
+      flex-direction: column;
       gap: 24px;
     }
     .post {
@@ -170,7 +218,7 @@
       z-index: 80;
       padding: 20px;
     }
-    #projectModal .modal-content {
+    .modal-content {
       background: #071018;
       padding: 24px;
       border-radius: var(--radius);
@@ -181,13 +229,13 @@
       color: #e9f0f6;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
     }
-    #projectModal .modal-header {
+    .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
     }
-    #projectModal .modal-header .close-btn {
+    .modal-header .close-btn {
       background: transparent;
       border: none;
       color: var(--muted);
@@ -202,7 +250,7 @@
       background: linear-gradient(180deg, #081018, #061018);
       max-height: clamp(300px, 50vw, 500px);
     }
-    #projectModal .actions {
+    .actions {
       margin-top: 12px;
       display: flex;
       justify-content: flex-end;
@@ -336,16 +384,22 @@
 
     /* Enhanced Responsive Design */
     @media (min-width: 768px) {
+      .ちゃんと
       .hero { grid-template-columns: 1fr 1fr; }
       .model-card img { height: clamp(350px, 40vw, 500px); }
       footer { grid-template-columns: 1fr 1fr 1fr; }
-      #portfolio { grid-template-columns: repeat(3, 1fr); } /* Forces 3 columns for videos side by side */
+      .portfolio-videos {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+      .post { flex: 1; max-width: 32%; }
     }
     @media (min-width: 1024px) {
       header { padding: 24px 8%; }
       .hero { padding: 72px 8%; }
       .model-card { padding: 24px; max-width: 700px; }
-      #portfolio { padding: 48px 8%; grid-template-columns: repeat(3, 1fr); } /* Maintains 3 columns */
+      #portfolio { padding: 48px 8%; }
+      .portfolio-header { padding-left: 0; }
       .testimonials { padding: 48px 8%; }
       .team { padding: 48px 8%; }
       .timeline { padding: 48px 8%; }
@@ -353,7 +407,8 @@
       .post video { max-height: 350px; }
     }
     @media (max-width: 767px) {
-      #portfolio { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } /* Stacks videos on mobile */
+      .portfolio-videos { flex-direction: column; }
+      .post { max-width: 100%; }
       .btn { padding: 10px 16px; }
       .post video { height: clamp(120px, 35vw, 180px); }
       .test-card { width: 100%; }
@@ -402,10 +457,12 @@
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="portfolio fade-up">
-  <h2 style="margin: 0 0 16px 0; font-size: clamp(24px, 3vw, 32px);">Portafolio — Proyectos destacados</h2>
-  <div style="padding: 0 0 16px 0; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">Haz clic en un video para ver detalles.</div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+<section id="portfolio" class="fade-up">
+  <div class="portfolio-header">
+    <h2>Portafolio — Proyectos destacados</h2>
+    <div>Haz clic en un video para ver detalles.</div>
+  </div>
+  <div class="portfolio-videos">
     <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
       <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="1.mp4" type="video/mp4">
@@ -462,51 +519,52 @@
 <section class="team" id="equipo">
   <div class="leader" onclick="toggleLeader(this)">
     <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">EM</div>
+      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #0b84ff energetica font-size: clamp(16px, 2.5vw, 18px);"><div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900;">EM</div>
       <div>
         <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Edwin Martínez</div>
         <div class="small">Co-fundador • Director técnico</div>
       </div>
-    </div>
-    <div class="more" style="margin-top: 12px">
-      Edwin lidera el área técnica, validación de materiales y control de calidad. Experto en sistemas de revestimiento y aplicación decorativa.
-    </div>
-  </div>
-  <div class="leader" onclick="toggleLeader(this)">
-    <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">BT</div>
-      <div>
-        <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Bladimir Torres</div>
-        <div class="small">Co-fundador • Gerente comercial</div>
+      <div class="more" style="margin-top: 12px">
+        Edwin lidera el área técnica, validación de materiales y control de calidad. Experto en sistemas de revestimiento y aplicación decorativa.
       </div>
     </div>
-    <div class="more" style="margin-top: 12px">
-      Bladimir maneja las relaciones con clientes y crecimiento comercial. Responsable de la expansión hacia Medellín y alianzas estratégicas.
-    </div>
-  </div>
-  <div class="leader" onclick="toggleLeader(this)">
-    <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">SM</div>
-      <div>
-        <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Samuel Martínez</div>
-        <div class="small">Jefe de proyectos y gestión de la calidad</div>
+    <div class="leader" onclick="toggleLeader(this)">
+      <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
+        <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">BT</div>
+        <div>
+          <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Bladimir Torres</div>
+          <div class="small">Co-fundador • Gerente comercial</div>
+        </div>
+      </div>
+      <div class="more" style="margin-top: 12px">
+        Bladimir maneja las relaciones con clientes y crecimiento comercial. Responsable de la expansión hacia Medellín y alianzas estratégicas.
       </div>
     </div>
-    <div class="more" style="margin-top: 12px">
-      Coordina equipos, cronogramas y supervisa la ejecución en obra, asegurando calidad y tiempos de entrega.
+    <div class="leader" onclick="toggle Leader(this)">
+      <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
+        <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">SM</div>
+        <div>
+          <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Samuel Martínez</div>
+          <div class="small">Jefe de proyectos y gestión de la calidad</div>
+        </div>
+      </div>
+      <div class="more" style="margin-top: 12px">
+        Coordina equipos, cronogramas y supervisa la ejecución en obra, asegurando calidad y tiempos de entrega.
+      </div>
     </div>
-  </div>
 </section>
 
 <!-- HISTORIA / TIMELINE -->
 <section id="historia" style="padding-bottom: 36px">
-  <h2 style="padding: 36px 0 0 0; font-size: clamp(24px, 3vw, 32px);">Nuestra historia — 2014 → 2025</h2>
-  <div class="timeline">
-    <div class="years" id="yearsList">
-      <!-- Buttons generated by JS -->
-    </div>
-    <div class="mindmap" id="mindmap">
-      <div style="position: absolute; left: 20px; top: 20px; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">Haz clic en un año para ver su evento</div>
+  <div style="padding: 36px 6% 0 6%; max-width: 1400px; margin: 0 auto;">
+    <h2 style="font-size: clamp(24px, 3vw, 32px); margin: 0 0 16px 0; text-align: left;">Nuestra historia — 2014 → 2025</h2>
+    <div class="timeline">
+      <div class="years" id="yearsList">
+        <!-- Buttons generated by JS -->
+      </div>
+      <div class="mindmap" id="mindmap">
+        <div style="position: absolute; left: 20px; top: 20px; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">Haz clic en un año para ver su evento</div>
+      </div>
     </div>
   </div>
 </section>
@@ -633,7 +691,7 @@ const timelineData = {
   2018: { title: 'Nuevos métodos', loc: 'Costa', text: 'Introducen técnicas innovadoras de pintura, atrayendo más clientes en la costa.' },
   2019: { title: 'Reconocimiento', loc: 'Costa', text: 'Se hacen conocidos por su dedicación en proyectos costeros, consolidando su reputación.' },
   2020: { title: 'Resiliencia', loc: 'Costa', text: 'A pesar de los retos, mantienen su trabajo en la costa con adaptaciones creativas.' },
-  2021: { title: 'Llegada a Medellín', loc: 'Antioquia', text: 'Inician operaciones en Medellín, explorando nuevas oportunidades en Antioquia.' },
+  mt: { title: 'Llegada a Medellín', loc: 'Antioquia', text: 'Inician operaciones en Medellín, explorando nuevas oportunidades en Antioquia.' },
   2022: { title: 'Crecimiento en Antioquia', loc: 'Antioquia', text: 'Aumentan su presencia en Medellín y zonas cercanas con más proyectos.' },
   2023: { title: 'Consolidación', loc: 'Antioquia', text: 'Fortalecen su equipo en Medellín, estableciéndose firmemente en Antioquia.' },
   2024: { title: 'Expansión continua', loc: 'Antioquia', text: 'Siguen creciendo en Antioquia, tomando proyectos más grandes en Medellín.' },

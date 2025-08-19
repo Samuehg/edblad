@@ -20,10 +20,9 @@
       --radius: 14px;
       --ff: 'Inter', system-ui, -apple-system, Arial;
     }
-    * { box-sizing: border-box }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--ff);
-      margin: 0;
       background: linear-gradient(180deg, #07101a 0%, #06121a 60%);
       color: #e9f0f6;
       -webkit-font-smoothing: antialiased;
@@ -31,8 +30,9 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
-    a { color: inherit }
+    a { color: inherit; text-decoration: none; }
     header {
       padding: 15px 4%;
       display: flex;
@@ -43,8 +43,9 @@
       background: linear-gradient(180deg, rgba(7, 18, 26, 0.6), rgba(7, 18, 26, 0.45));
       backdrop-filter: blur(6px);
       z-index: 40;
+      max-width: 100%;
     }
-    .brand { display: flex; gap: 10px; align-items: center }
+    .brand { display: flex; gap: 10px; align-items: center; }
     .logo {
       width: 48px;
       height: 48px;
@@ -59,25 +60,28 @@
     }
     nav a {
       color: var(--muted);
-      margin-left: 12px;
-      text-decoration: none;
+      margin-left: 16px;
       font-weight: 700;
       font-size: 14px;
+      transition: color 0.3s;
     }
+    nav a:hover { color: var(--accent); }
     .hero {
       display: grid;
       grid-template-columns: 1fr;
       gap: 24px;
       align-items: center;
       padding: 40px 4%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .hero-left h1 {
-      font-size: clamp(24px, 6vw, 44px);
+      font-size: clamp(24px, 5vw, 40px);
       margin: 0 0 12px 0;
       line-height: 1.2;
     }
-    .hero-left p { color: var(--muted); margin: 0 0 12px }
-    .cta { display: flex; gap: 10px; margin-top: 12px }
+    .hero-left p { color: var(--muted); margin: 0 0 12px; }
+    .cta { display: flex; gap: 10px; margin-top: 12px; }
     .btn {
       background: var(--accent);
       border: none;
@@ -87,13 +91,16 @@
       cursor: pointer;
       color: #042828;
       font-size: clamp(12px, 2vw, 16px);
+      transition: background 0.3s;
     }
+    .btn:hover { background: #0cc1c0; }
     .btn.alt {
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.06);
       color: var(--muted);
     }
-    .small { color: var(--muted); font-size: clamp(12px, 2vw, 14px) }
+    .btn.alt:hover { border-color: var(--accent); color: var(--accent); }
+    .small { color: var(--muted); font-size: clamp(12px, 2vw, 14px); }
 
     .model-card {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
@@ -102,6 +109,8 @@
       box-shadow: 0 8px 28px rgba(2, 6, 23, 0.6);
       backdrop-filter: blur(6px);
       width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
     }
     .model-card img {
       width: 100%;
@@ -111,17 +120,19 @@
       background: linear-gradient(180deg, #081018, #061018);
     }
 
-    /* Maleta overlay animation */
-    .suitcase-wrap { position: relative }
-    .suitcase-float { transition: transform .9s cubic-bezier(.2, .9, .3, 1); transform-origin: center }
-    .suitcase-open { transform: translateY(-12px) rotate(-8deg) scale(1.03) }
+    /* Suitcase overlay animation */
+    .suitcase-wrap { position: relative; }
+    .suitcase-float { transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1); transform-origin: center; }
+    .suitcase-open { transform: translateY(-12px) rotate(-8deg) scale(1.03); }
 
-    /* Portfolio grid (Instagram style) */
+    /* Portfolio grid */
     #portfolio {
       padding: 24px 4%;
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
     }
     .post {
       background: var(--card);
@@ -146,8 +157,8 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .post .meta h4 { margin: 0 0 6px; font-size: clamp(12px, 2.5vw, 15px) }
-    .post .meta p { margin: 0; color: var(--muted); font-size: clamp(10px, 2vw, 13px) }
+    .post .meta h4 { margin: 0 0 6px; font-size: clamp(12px, 2.5vw, 15px); }
+    .post .meta p { margin: 0; color: var(--muted); font-size: clamp(10px, 2vw, 13px); }
 
     /* Modal for project details */
     #projectModal {
@@ -158,13 +169,13 @@
       align-items: center;
       justify-content: center;
       z-index: 80;
-      padding: 10px;
+      padding: 20px;
     }
     #projectModal .modal-content {
       background: #071018;
-      padding: 15px;
+      padding: 20px;
       border-radius: var(--radius);
-      max-width: 90%;
+      max-width: 800px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -202,35 +213,34 @@
     /* Testimonials carousel */
     .testimonials {
       padding: 24px 4%;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .test-card {
       background: linear-gradient(180deg, #07161b, #06121a);
       padding: 15px;
       border-radius: var(--radius);
-      width: clamp(250px, 80vw, 320px);
       box-shadow: 0 6px 24px rgba(2, 6, 12, 0.6);
       text-align: center;
     }
-    .stars { color: goldenrod; margin-bottom: 8px }
+    .stars { color: goldenrod; margin-bottom: 8px; }
 
     /* Leaders */
     .team {
       padding: 24px 4%;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .leader {
       background: var(--card);
       padding: 12px;
       border-radius: var(--radius);
-      width: clamp(200px, 80vw, 260px);
       text-align: center;
     }
     .leader .more {
@@ -239,14 +249,16 @@
       color: var(--muted);
       font-size: clamp(12px, 2vw, 14px);
     }
-    .leader.open .more { display: block }
+    .leader.open .more { display: block; }
 
     /* Timeline / mapa mental */
     .timeline {
       padding: 24px 4%;
       display: flex;
-      gap: 12px;
+      gap: 16px;
       align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .years {
       min-width: 100px;
@@ -289,9 +301,9 @@
       cursor: pointer;
       max-width: clamp(150px, 40vw, 200px);
     }
-    .node .title { font-weight: 800; font-size: clamp(12px, 2.5vw, 16px) }
-    .node .desc { font-size: clamp(10px, 2vw, 14px); color: var(--muted); margin-top: 6px; display: none }
-    .node.open .desc { display: block }
+    .node .title { font-weight: 800; font-size: clamp(12px, 2.5vw, 16px); }
+    .node .desc { font-size: clamp(10px, 2vw, 14px); color: var(--muted); margin-top: 6px; display: none; }
+    .node.open .desc { display: block; }
 
     /* Footer modernizado */
     footer {
@@ -299,13 +311,15 @@
       padding: 24px 4%;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 16px;
       background: linear-gradient(180deg, rgba(7, 12, 18, 0.6), rgba(7, 12, 18, 0.45));
       border-top: 1px solid rgba(255, 255, 255, 0.03);
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .footer-section h4 { margin: 0 0 8px 0 }
-    .social a { display: inline-block; margin-right: 8px; color: var(--muted); text-decoration: none }
-    .mini-gallery { display: flex; gap: 6px }
+    .footer-section h4 { margin: 0 0 8px 0; }
+    .social a { display: inline-block; margin-right: 8px; color: var(--muted); }
+    .mini-gallery { display: flex; gap: 6px; justify-content: flex-end; }
     .mini-gallery img {
       width: clamp(50px, 15vw, 64px);
       height: clamp(40px, 12vw, 48px);
@@ -317,35 +331,35 @@
     .fade-up {
       transform: translateY(10px);
       opacity: 0;
-      transition: all .6s ease;
+      transition: all 0.6s ease;
     }
-    .fade-up.show { transform: none; opacity: 1 }
+    .fade-up.show { transform: none; opacity: 1; }
 
     /* Enhanced Responsive Design */
     @media (min-width: 768px) {
-      .hero { grid-template-columns: 1fr 40vw }
-      .model-card img { height: clamp(250px, 40vw, 420px) }
-      #portfolio { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) }
-      footer { grid-template-columns: 1fr 1fr 300px }
+      .hero { grid-template-columns: 1fr 1fr; }
+      .model-card img { height: clamp(250px, 40vw, 420px); }
+      #portfolio { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+      footer { grid-template-columns: 1fr 1fr 1fr; }
     }
     @media (min-width: 1024px) {
-      header { padding: 20px 6% }
-      .hero { padding: 48px 6% }
-      .model-card { padding: 18px }
-      #portfolio { padding: 36px 6%; grid-template-columns: repeat(3, 1fr) }
-      .testimonials { padding: 36px 6% }
-      .team { padding: 36px 6% }
-      .timeline { padding: 36px 6% }
-      footer { padding: 36px 6% }
-      .post video { max-height: 300px }
+      header { padding: 20px 6%; }
+      .hero { padding: 48px 6%; }
+      .model-card { padding: 18px; }
+      #portfolio { padding: 36px 6%; }
+      .testimonials { padding: 36px 6%; }
+      .team { padding: 36px 6%; }
+      .timeline { padding: 36px 6%; }
+      footer { padding: 36px 6%; }
+      .post video { max-height: 300px; }
     }
     @media (max-width: 480px) {
-      .btn { padding: 8px 12px }
-      .post video { height: clamp(120px, 35vw, 180px) }
-      .test-card { width: 100% }
-      .leader { width: 100% }
-      .years { min-width: 80px }
-      .mindmap { min-height: clamp(150px, 40vh, 200px) }
+      .btn { padding: 8px 12px; }
+      .post video { height: clamp(120px, 35vw, 180px); }
+      .test-card { width: 100%; }
+      .leader { width: 100%; }
+      .years { min-width: 80px; }
+      .mindmap { min-height: clamp(150px, 40vh, 200px); }
     }
   </style>
 </head>
@@ -387,11 +401,11 @@
   </div>
 </section>
 
-<!-- PORTFOLIO (tipo instagram) -->
+<!-- PORTFOLIO -->
 <section id="portfolio" class="portfolio fade-up">
-  <h2 style="margin: 0 0 12px 4%;">Portafolio — Proyectos destacados</h2>
-  <div style="padding: 0 4% 12px 4%; color: var(--muted)">Haz clic en un video para ver detalles.</div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; padding: 0 4% 24px 4%">
+  <h2 style="margin: 0 0 12px 0;">Portafolio — Proyectos destacados</h2>
+  <div style="padding: 0 0 12px 0; color: var(--muted)">Haz clic en un video para ver detalles.</div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
     <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
       <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="1.mp4" type="video/mp4">
@@ -460,7 +474,7 @@
   </div>
   <div class="leader" onclick="toggleLeader(this)">
     <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900">BM</div>
+      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900">BT</div>
       <div>
         <div style="font-weight: 800">Bladimir Torres</div>
         <div class="small">Co-fundador • Gerente comercial</div>
@@ -484,15 +498,14 @@
   </div>
 </section>
 
-<!-- HISTORIA / TIMELINE (MAPA MENTAL SIMPLE) -->
+<!-- HISTORIA / TIMELINE -->
 <section id="historia" style="padding-bottom: 24px">
-  <h2 style="padding: 24px 4% 0 4%;">Nuestra historia — 2014 → 2025</h2>
+  <h2 style="padding: 24px 0 0 0;">Nuestra historia — 2014 → 2025</h2>
   <div class="timeline">
     <div class="years" id="yearsList">
       <!-- Buttons generated by JS -->
     </div>
     <div class="mindmap" id="mindmap">
-      <!-- Nodes of the mind map generated by JS -->
       <div style="position: absolute; left: 15px; top: 15px; color: var(--muted)">Haz clic en un año para ver su evento</div>
     </div>
   </div>
@@ -523,7 +536,7 @@
       <a href="https://www.tiktok.com/@edblad.sas?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
     </div>
     <h4 style="margin-top: 10px">Mini galería</h4>
-    <div class="mini-gallery" style="justify-content: flex-end">
+    <div class="mini-gallery">
       <img src="11.png" alt="">
       <img src="22.png" alt="">
       <img src="12.png" alt="">
@@ -533,7 +546,7 @@
 </footer>
 
 <!-- Modal for project details -->
-<div id="projectModal" style="display: none; position: fixed; inset: 0; background: rgba(2, 6, 12, 0.7); align-items: center; justify-content: center; z-index: 80; padding: 10px;">
+<div id="projectModal">
   <div class="modal-content">
     <div class="modal-header">
       <div style="font-weight: 800" id="pmTitle"></div>

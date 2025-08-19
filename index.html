@@ -34,7 +34,7 @@
     }
     a { color: inherit; text-decoration: none; }
     header {
-      padding: 15px 4%;
+      padding: 20px 6%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -45,52 +45,52 @@
       z-index: 40;
       max-width: 100%;
     }
-    .brand { display: flex; gap: 10px; align-items: center; }
+    .brand { display: flex; gap: 12px; align-items: center; }
     .logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
       background: linear-gradient(135deg, var(--accent), #0b84ff);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
       color: #042828;
-      font-size: 18px;
+      font-size: 24px;
     }
     nav a {
       color: var(--muted);
-      margin-left: 16px;
+      margin-left: 20px;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 16px;
       transition: color 0.3s;
     }
     nav a:hover { color: var(--accent); }
     .hero {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 32px;
       align-items: center;
-      padding: 40px 4%;
-      max-width: 1200px;
+      padding: 60px 6%;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .hero-left h1 {
-      font-size: clamp(24px, 5vw, 40px);
-      margin: 0 0 12px 0;
+      font-size: clamp(28px, 5vw, 48px);
+      margin: 0 0 16px 0;
       line-height: 1.2;
     }
-    .hero-left p { color: var(--muted); margin: 0 0 12px; }
-    .cta { display: flex; gap: 10px; margin-top: 12px; }
+    .hero-left p { color: var(--muted); margin: 0 0 16px; font-size: clamp(14px, 2vw, 18px); }
+    .cta { display: flex; gap: 12px; margin-top: 16px; }
     .btn {
       background: var(--accent);
       border: none;
-      padding: 10px 16px;
+      padding: 12px 20px;
       border-radius: 12px;
       font-weight: 800;
       cursor: pointer;
       color: #042828;
-      font-size: clamp(12px, 2vw, 16px);
+      font-size: clamp(14px, 2vw, 18px);
       transition: background 0.3s;
     }
     .btn:hover { background: #0cc1c0; }
@@ -100,21 +100,21 @@
       color: var(--muted);
     }
     .btn.alt:hover { border-color: var(--accent); color: var(--accent); }
-    .small { color: var(--muted); font-size: clamp(12px, 2vw, 14px); }
+    .small { color: var(--muted); font-size: clamp(12px, 2vw, 16px); }
 
     .model-card {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-      padding: 15px;
+      padding: 20px;
       border-radius: 16px;
       box-shadow: 0 8px 28px rgba(2, 6, 23, 0.6);
       backdrop-filter: blur(6px);
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
     }
     .model-card img {
       width: 100%;
-      height: clamp(200px, 40vw, 420px);
+      height: clamp(300px, 40vw, 500px);
       border-radius: 12px;
       object-fit: cover;
       background: linear-gradient(180deg, #081018, #061018);
@@ -127,12 +127,11 @@
 
     /* Portfolio grid */
     #portfolio {
-      padding: 24px 4%;
-      max-width: 1200px;
+      padding: 36px 6%;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
+      gap: 24px;
     }
     .post {
       background: var(--card);
@@ -151,14 +150,14 @@
       background: linear-gradient(180deg, #081018, #061018);
     }
     .post .meta {
-      padding: 8px;
+      padding: 12px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .post .meta h4 { margin: 0 0 6px; font-size: clamp(12px, 2.5vw, 15px); }
-    .post .meta p { margin: 0; color: var(--muted); font-size: clamp(10px, 2vw, 13px); }
+    .post .meta h4 { margin: 0 0 8px; font-size: clamp(14px, 2.5vw, 18px); }
+    .post .meta p { margin: 0; color: var(--muted); font-size: clamp(12px, 2vw, 16px); }
 
     /* Modal for project details */
     #projectModal {
@@ -173,9 +172,9 @@
     }
     #projectModal .modal-content {
       background: #071018;
-      padding: 20px;
+      padding: 24px;
       border-radius: var(--radius);
-      max-width: 800px;
+      max-width: 900px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -186,98 +185,98 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     #projectModal .modal-header .close-btn {
       background: transparent;
       border: none;
       color: var(--muted);
-      font-size: 20px;
+      font-size: 24px;
       cursor: pointer;
     }
     #projectModal video {
       width: 100%;
       aspect-ratio: 16 / 9;
       border-radius: var(--radius);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       background: linear-gradient(180deg, #081018, #061018);
-      max-height: clamp(200px, 50vw, 400px);
+      max-height: clamp(300px, 50vw, 500px);
     }
     #projectModal .actions {
-      margin-top: 10px;
+      margin-top: 12px;
       display: flex;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 10px;
     }
 
     /* Testimonials carousel */
     .testimonials {
-      padding: 24px 4%;
+      padding: 36px 6%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .test-card {
       background: linear-gradient(180deg, #07161b, #06121a);
-      padding: 15px;
+      padding: 20px;
       border-radius: var(--radius);
       box-shadow: 0 6px 24px rgba(2, 6, 12, 0.6);
       text-align: center;
     }
-    .stars { color: goldenrod; margin-bottom: 8px; }
+    .stars { color: goldenrod; margin-bottom: 10px; font-size: 18px; }
 
     /* Leaders */
     .team {
-      padding: 24px 4%;
+      padding: 36px 6%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .leader {
       background: var(--card);
-      padding: 12px;
+      padding: 16px;
       border-radius: var(--radius);
       text-align: center;
     }
     .leader .more {
       display: none;
-      padding-top: 8px;
+      padding-top: 10px;
       color: var(--muted);
-      font-size: clamp(12px, 2vw, 14px);
+      font-size: clamp(14px, 2vw, 16px);
     }
     .leader.open .more { display: block; }
 
     /* Timeline / mapa mental */
     .timeline {
-      padding: 24px 4%;
+      padding: 36px 6%;
       display: flex;
-      gap: 16px;
+      gap: 24px;
       align-items: flex-start;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .years {
-      min-width: 100px;
+      min-width: 120px;
       background: rgba(255, 255, 255, 0.02);
-      padding: 10px;
+      padding: 12px;
       border-radius: var(--radius);
     }
     .years button {
       display: block;
       width: 100%;
       text-align: left;
-      padding: 6px;
+      padding: 8px;
       border: none;
       background: transparent;
       color: var(--muted);
       cursor: pointer;
       font-weight: 700;
       border-left: 4px solid transparent;
-      font-size: clamp(12px, 2vw, 14px);
+      font-size: clamp(14px, 2vw, 16px);
     }
     .years button.active {
       color: #e6f9f7;
@@ -285,44 +284,44 @@
     }
     .mindmap {
       flex: 1;
-      min-height: clamp(200px, 40vh, 340px);
+      min-height: clamp(250px, 40vh, 400px);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
       border-radius: var(--radius);
-      padding: 15px;
+      padding: 20px;
       position: relative;
       overflow: hidden;
     }
     .node {
       position: absolute;
-      padding: 8px 10px;
+      padding: 10px 12px;
       background: linear-gradient(180deg, #082226, #06343b);
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.03);
       cursor: pointer;
-      max-width: clamp(150px, 40vw, 200px);
+      max-width: clamp(180px, 40vw, 240px);
     }
-    .node .title { font-weight: 800; font-size: clamp(12px, 2.5vw, 16px); }
-    .node .desc { font-size: clamp(10px, 2vw, 14px); color: var(--muted); margin-top: 6px; display: none; }
+    .node .title { font-weight: 800; font-size: clamp(14px, 2.5vw, 18px); }
+    .node .desc { font-size: clamp(12px, 2vw, 16px); color: var(--muted); margin-top: 8px; display: none; }
     .node.open .desc { display: block; }
 
     /* Footer modernizado */
     footer {
       margin-top: auto;
-      padding: 24px 4%;
+      padding: 36px 6%;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 24px;
       background: linear-gradient(180deg, rgba(7, 12, 18, 0.6), rgba(7, 12, 18, 0.45));
       border-top: 1px solid rgba(255, 255, 255, 0.03);
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
-    .footer-section h4 { margin: 0 0 8px 0; }
-    .social a { display: inline-block; margin-right: 8px; color: var(--muted); }
-    .mini-gallery { display: flex; gap: 6px; justify-content: flex-end; }
+    .footer-section h4 { margin: 0 0 10px 0; font-size: clamp(16px, 2.5vw, 20px); }
+    .social a { display: inline-block; margin-right: 10px; color: var(--muted); font-size: clamp(14px, 2vw, 16px); }
+    .mini-gallery { display: flex; gap: 8px; justify-content: flex-end; }
     .mini-gallery img {
-      width: clamp(50px, 15vw, 64px);
-      height: clamp(40px, 12vw, 48px);
+      width: clamp(60px, 15vw, 80px);
+      height: clamp(48px, 12vw, 64px);
       object-fit: cover;
       border-radius: var(--radius);
     }
@@ -338,23 +337,24 @@
     /* Enhanced Responsive Design */
     @media (min-width: 768px) {
       .hero { grid-template-columns: 1fr 1fr; }
-      .model-card img { height: clamp(250px, 40vw, 420px); }
-      #portfolio { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+      .model-card img { height: clamp(350px, 40vw, 500px); }
       footer { grid-template-columns: 1fr 1fr 1fr; }
+      #portfolio { grid-template-columns: repeat(3, 1fr); } /* Forces 3 columns for videos side by side */
     }
     @media (min-width: 1024px) {
-      header { padding: 20px 6%; }
-      .hero { padding: 48px 6%; }
-      .model-card { padding: 18px; }
-      #portfolio { padding: 36px 6%; }
-      .testimonials { padding: 36px 6%; }
-      .team { padding: 36px 6%; }
-      .timeline { padding: 36px 6%; }
-      footer { padding: 36px 6%; }
-      .post video { max-height: 300px; }
+      header { padding: 24px 8%; }
+      .hero { padding: 72px 8%; }
+      .model-card { padding: 24px; max-width: 700px; }
+      #portfolio { padding: 48px 8%; grid-template-columns: repeat(3, 1fr); } /* Maintains 3 columns */
+      .testimonials { padding: 48px 8%; }
+      .team { padding: 48px 8%; }
+      .timeline { padding: 48px 8%; }
+      footer { padding: 48px 8%; }
+      .post video { max-height: 350px; }
     }
-    @media (max-width: 480px) {
-      .btn { padding: 8px 12px; }
+    @media (max-width: 767px) {
+      #portfolio { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } /* Stacks videos on mobile */
+      .btn { padding: 10px 16px; }
       .post video { height: clamp(120px, 35vw, 180px); }
       .test-card { width: 100%; }
       .leader { width: 100%; }
@@ -369,8 +369,8 @@
   <div class="brand">
     <div class="logo">E</div>
     <div>
-      <div style="font-weight: 900; letter-spacing: 0.6px">EDBLAD S.A.S.</div>
-      <div style="font-size: 13px; color: var(--muted)">Excelencia en acabados • Desde 2014</div>
+      <div style="font-weight: 900; letter-spacing: 0.6px; font-size: clamp(18px, 2.5vw, 22px);">EDBLAD S.A.S.</div>
+      <div style="font-size: clamp(12px, 2vw, 14px); color: var(--muted)">Excelencia en acabados • Desde 2014</div>
     </div>
   </div>
   <nav>
@@ -384,18 +384,18 @@
 <!-- HERO -->
 <section id="inicio" class="hero">
   <div class="hero-left">
-    <div class="small" style="display: inline-block; padding: 6px 10px; border-radius: 999px; background: linear-gradient(90deg, #052023, #064a49); color: #bff6f2; font-weight: 800">Acabados & Soluciones</div>
+    <div class="small" style="display: inline-block; padding: 8px 12px; border-radius: 999px; background: linear-gradient(90deg, #052023, #064a49); color: #bff6f2; font-weight: 800">Acabados & Soluciones</div>
     <h1>Transformamos tus espacios con acabados duraderos y con estilo.</h1>
     <p class="small">EDBLAD S.A.S. — desde 05-06-2014, combinamos técnica, materiales premium y una pasión por el detalle. Proyectos residenciales y comerciales con enfoque en calidad y diseño.</p>
     <div class="cta">
       <button class="btn" onclick="window.open('https://wa.me/573016232176', '_blank')">Solicitar presupuesto</button>
       <button id="verPortfolioBtn" class="btn alt" onclick="triggerSuitcase()">Ver portafolio</button>
     </div>
-    <div style="margin-top: 18px; color: var(--muted); font-size: 14px">Servicios: Revestimientos • Pintura técnica • Estucos • Impermeabilización • Consultoría técnica</div>
+    <div style="margin-top: 20px; color: var(--muted); font-size: clamp(14px, 2vw, 16px)">Servicios: Revestimientos • Pintura técnica • Estucos • Impermeabilización • Consultoría técnica</div>
   </div>
   <div class="model-card suitcase-wrap">
     <img src="edblad-logo.png" alt="EDBLAD Logo" style="width: 100%; border-radius: 12px; object-fit: cover; background: linear-gradient(180deg, #081018, #061018);">
-    <div style="position: absolute; right: 15px; bottom: 15px; width: clamp(80px, 20vw, 120px)" id="suitcaseHolder">
+    <div style="position: absolute; right: 20px; bottom: 20px; width: clamp(100px, 20vw, 150px)" id="suitcaseHolder">
       <model-viewer id="suitcaseModel" src="vintage_suitcase_derivative.glb" alt="Maleta vintage 3D" camera-controls auto-rotate class="suitcase-float" style="width: 100%; height: auto; aspect-ratio: 4 / 3;"></model-viewer>
     </div>
   </div>
@@ -403,9 +403,9 @@
 
 <!-- PORTFOLIO -->
 <section id="portfolio" class="portfolio fade-up">
-  <h2 style="margin: 0 0 12px 0;">Portafolio — Proyectos destacados</h2>
-  <div style="padding: 0 0 12px 0; color: var(--muted)">Haz clic en un video para ver detalles.</div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+  <h2 style="margin: 0 0 16px 0; font-size: clamp(24px, 3vw, 32px);">Portafolio — Proyectos destacados</h2>
+  <div style="padding: 0 0 16px 0; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">Haz clic en un video para ver detalles.</div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
     <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
       <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
         <source src="1.mp4" type="video/mp4">
@@ -443,70 +443,70 @@
 <section class="testimonials" aria-label="Reseñas">
   <div class="test-card">
     <div class="stars">★★★★★</div>
-    <div style="font-weight: 800">María P.</div>
-    <div style="color: var(--muted); margin-top: 8px">"EDBLAD entregó el proyecto a tiempo y con una calidad que superó nuestras expectativas. Recomendados 100%."</div>
+    <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">María P.</div>
+    <div style="color: var(--muted); margin-top: 10px; font-size: clamp(14px, 2vw, 16px);">"EDBLAD entregó el proyecto a tiempo y con una calidad que superó nuestras expectativas. Recomendados 100%."</div>
   </div>
   <div class="test-card">
     <div class="stars">★★★★★</div>
-    <div style="font-weight: 800">Carlos R.</div>
-    <div style="color: var(--muted); margin-top: 8px">"Profesionales y muy técnicos. Su trabajo de impermeabilización nos salvó la fachada."</div>
+    <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Carlos R.</div>
+    <div style="color: var(--muted); margin-top: 10px; font-size: clamp(14px, 2vw, 16px);">"Profesionales y muy técnicos. Su trabajo de impermeabilización nos salvó la fachada."</div>
   </div>
   <div class="test-card">
     <div class="stars">★★★★★</div>
-    <div style="font-weight: 800">Sofía L.</div>
-    <div style="color: var(--muted); margin-top: 8px">"Acabados finos y atención al detalle. Volvería a contratarlos sin dudar."</div>
+    <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Sofía L.</div>
+    <div style="color: var(--muted); margin-top: 10px; font-size: clamp(14px, 2vw, 16px);">"Acabados finos y atención al detalle. Volvería a contratarlos sin dudar."</div>
   </div>
 </section>
 
 <!-- LÍDERES / EQUIPO -->
 <section class="team" id="equipo">
   <div class="leader" onclick="toggleLeader(this)">
-    <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900">EM</div>
+    <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
+      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">EM</div>
       <div>
-        <div style="font-weight: 800">Edwin Martínez</div>
+        <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Edwin Martínez</div>
         <div class="small">Co-fundador • Director técnico</div>
       </div>
     </div>
-    <div class="more" style="margin-top: 10px">
+    <div class="more" style="margin-top: 12px">
       Edwin lidera el área técnica, validación de materiales y control de calidad. Experto en sistemas de revestimiento y aplicación decorativa.
     </div>
   </div>
   <div class="leader" onclick="toggleLeader(this)">
-    <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900">BT</div>
+    <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
+      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">BT</div>
       <div>
-        <div style="font-weight: 800">Bladimir Torres</div>
+        <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Bladimir Torres</div>
         <div class="small">Co-fundador • Gerente comercial</div>
       </div>
     </div>
-    <div class="more" style="margin-top: 10px">
+    <div class="more" style="margin-top: 12px">
       Bladimir maneja las relaciones con clientes y crecimiento comercial. Responsable de la expansión hacia Medellín y alianzas estratégicas.
     </div>
   </div>
   <div class="leader" onclick="toggleLeader(this)">
-    <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
-      <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900">SM</div>
+    <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
+      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">SM</div>
       <div>
-        <div style="font-weight: 800">Samuel Martínez</div>
+        <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Samuel Martínez</div>
         <div class="small">Jefe de proyectos y gestión de la calidad</div>
       </div>
     </div>
-    <div class="more" style="margin-top: 10px">
+    <div class="more" style="margin-top: 12px">
       Coordina equipos, cronogramas y supervisa la ejecución en obra, asegurando calidad y tiempos de entrega.
     </div>
   </div>
 </section>
 
 <!-- HISTORIA / TIMELINE -->
-<section id="historia" style="padding-bottom: 24px">
-  <h2 style="padding: 24px 0 0 0;">Nuestra historia — 2014 → 2025</h2>
+<section id="historia" style="padding-bottom: 36px">
+  <h2 style="padding: 36px 0 0 0; font-size: clamp(24px, 3vw, 32px);">Nuestra historia — 2014 → 2025</h2>
   <div class="timeline">
     <div class="years" id="yearsList">
       <!-- Buttons generated by JS -->
     </div>
     <div class="mindmap" id="mindmap">
-      <div style="position: absolute; left: 15px; top: 15px; color: var(--muted)">Haz clic en un año para ver su evento</div>
+      <div style="position: absolute; left: 20px; top: 20px; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">Haz clic en un año para ver su evento</div>
     </div>
   </div>
 </section>
@@ -515,15 +515,15 @@
 <footer id="contacto">
   <div class="footer-section">
     <h4>EDBLAD S.A.S.</h4>
-    <div style="color: var(--muted); margin-bottom: 12px">edbladsas@gmail.com • +57 301 623 2176</div>
-    <div style="display: flex; gap: 8px">
+    <div style="color: var(--muted); margin-bottom: 12px; font-size: clamp(14px, 2vw, 16px);">edbladsas@gmail.com • +57 301 623 2176</div>
+    <div style="display: flex; gap: 10px">
       <a class="btn" href="https://wa.me/573016232176" target="_blank">WhatsApp</a>
       <a class="btn alt" href="#portfolio" onclick="triggerSuitcase()">Ver portafolio</a>
     </div>
   </div>
   <div class="footer-section">
     <h4>Enlaces rápidos</h4>
-    <div style="display: flex; flex-direction: column; gap: 8px; color: var(--muted)">
+    <div style="display: flex; flex-direction: column; gap: 10px; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">
       <a href="#equipo" onclick="scrollToId('equipo')">Equipo</a>
       <a href="#historia" onclick="scrollToId('historia')">Historia</a>
       <a href="#portfolio" onclick="scrollToId('portfolio')">Proyectos</a>
@@ -535,13 +535,13 @@
       <a href="https://www.instagram.com/edblad_lo_mejor_en_acabados?igsh=b2R5b2lzc3ViMHcy" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@edblad.sas?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
     </div>
-    <h4 style="margin-top: 10px">Mini galería</h4>
+    <h4 style="margin-top: 12px">Mini galería</h4>
     <div class="mini-gallery">
       <img src="11.png" alt="">
       <img src="22.png" alt="">
       <img src="12.png" alt="">
     </div>
-    <div style="margin-top: 12px; color: var(--muted); font-size: 13px">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
+    <div style="margin-top: 12px; color: var(--muted); font-size: clamp(12px, 2vw, 14px);">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
   </div>
 </footer>
 
@@ -549,7 +549,7 @@
 <div id="projectModal">
   <div class="modal-content">
     <div class="modal-header">
-      <div style="font-weight: 800" id="pmTitle"></div>
+      <div style="font-weight: 800; font-size: clamp(18px, 2.5vw, 20px);" id="pmTitle"></div>
       <button class="close-btn" onclick="closeModal()">✕</button>
     </div>
     <div id="pmBody"></div>
@@ -574,25 +574,25 @@ function openProject(title, desc, location, videoSrc) {
   const pmBody = document.getElementById('pmBody');
 
   pmTitle.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(90deg, #0b84ff, #0ea5a4);"></div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(90deg, #0b84ff, #0ea5a4);"></div>
       <div>
         <div style="font-weight: 800">${title}</div>
-        <div style="color: var(--muted); font-size: 13px">${location}</div>
+        <div style="color: var(--muted); font-size: clamp(14px, 2vw, 16px);">${location}</div>
       </div>
     </div>
   `;
   pmBody.innerHTML = `
-    <video src="${videoSrc}" autoplay muted controls style="width: 100%; border-radius: var(--radius); margin-bottom: 10px; background: linear-gradient(180deg, #081018, #061018);">
+    <video src="${videoSrc}" autoplay muted controls style="width: 100%; border-radius: var(--radius); margin-bottom: 12px; background: linear-gradient(180deg, #081018, #061018);">
       <source src="${videoSrc}" type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
-    <div style="color: var(--muted); font-size: 13px">${desc}</div>
-    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px">
+    <div style="color: var(--muted); font-size: clamp(14px, 2vw, 16px);">${desc}</div>
+    <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px">
       <span style="color: #ed4956">♥ ${Math.floor(Math.random() * 10000)} Like</span>
       <span style="color: var(--muted)">EDBLAD - lo mejor en acabados</span>
     </div>
-    <div style="margin-top: 10px; color: var(--muted); font-size: 13px">Hace ${Math.floor(Math.random() * 24)}h</div>
+    <div style="margin-top: 12px; color: var(--muted); font-size: clamp(12px, 2vw, 14px);">Hace ${Math.floor(Math.random() * 24)}h</div>
   `;
 
   modal.style.display = 'flex';
@@ -658,8 +658,8 @@ function selectYear(year) {
   mindmap.innerHTML = '';
   const center = createNode((timelineData[year] || { title: year }).title + ' • ' + (timelineData[year] ? timelineData[year].loc : '—'), (timelineData[year] || { text: 'Evento no disponible.' }).text, 40, 40, true);
   mindmap.appendChild(center);
-  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 250, 40, false);
-  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 40, 200, false);
+  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 300, 40, false);
+  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 40, 240, false);
   mindmap.appendChild(impacto);
   mindmap.appendChild(evolucion);
   setTimeout(() => {
@@ -679,8 +679,8 @@ function createNode(title, desc, x, y, isCenter) {
   el.style.opacity = '0.98';
   if (isCenter) {
     el.style.background = 'linear-gradient(90deg, #064a49, #052023)';
-    el.style.fontSize = '16px';
-    el.style.padding = '12px 16px';
+    el.style.fontSize = '18px';
+    el.style.padding = '14px 18px';
   }
   el.innerHTML = `<div class="title">${title}</div><div class="desc">${desc}</div>`;
   el.onclick = () => el.classList.toggle('open');

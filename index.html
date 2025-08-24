@@ -6,9 +6,14 @@
   <link rel="icon" href="jj.png" type="image/x-icon">
   <title>EDBLAD S.A.S. — Acabados</title>
   <meta name="description" content="EDBLAD — Especialistas en acabados." />
+  <meta name="keywords" content="acabados, revestimientos, pintura, impermeabilización, Medellín" />
+  <meta name="author" content="EDBLAD S.A.S." />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Model Viewer for 3D suitcase -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
     :root {
@@ -23,163 +28,132 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--ff);
-      background: linear-gradient(180deg, #07101ímite
-
-System: I notice that the provided HTML code appears to be cut off. I'll proceed with the modifications based on the available code and your specific requests. Below is the updated version addressing the issues: aligning section titles properly to the left on desktop and arranging the portfolio videos horizontally in the specified order (first on the right, second in the middle, third on the left) using `flexbox` with `row-reverse` on desktop, while maintaining vertical stacking on mobile.
-
-<xaiArtifact artifact_id="266c5bcc-90f8-4cb4-a885-55987e28aebd" artifact_version_id="5aa47913-fe62-46b6-8813-78bddea48550" title="index.html" contentType="text/html">
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="jj.png" type="image/x-icon">
-  <title>EDBLAD S.A.S. — Acabados</title>
-  <meta name="description" content="EDBLAD — Especialistas en acabados." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #07121a;
-      --card: #0f1720;
-      --accent: #0ea5a4;
-      --muted: #94a3b8;
-      --glass: rgba(255, 255, 255, 0.03);
-      --radius: 14px;
-      --ff: 'Inter', system-ui, -apple-system, Arial;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--ff);
-      background: linear-gradient(180deg, #07101a 0%, #06121a 60%);
+      background: linear-gradient(180deg, #07121a 0%, #06121a 100%);
       color: #e9f0f6;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.4;
-      display: flex;
-      flex-direction: column;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
       min-height: 100vh;
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
     header {
-      padding: 20px 6%;
+      padding: 16px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
-      background: linear-gradient(180deg, rgba(7, 18, 26, 0.6), rgba(7, 18, 26, 0.45));
-      backdrop-filter: blur(6px);
-      z-index: 40;
+      background: linear-gradient(180deg, rgba(7, 18, 26, 0.8), rgba(7, 18, 26, 0.6));
+      backdrop-filter: blur(8px);
+      z-index: 50;
       max-width: 100%;
     }
-    .brand { display: flex; gap: 12px; align-items: center; }
+    .brand { display: flex; gap: 10px; align-items: center; }
     .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
       background: linear-gradient(135deg, var(--accent), #0b84ff);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
       color: #042828;
-      font-size: 24px;
+      font-size: 20px;
     }
     nav a {
       color: var(--muted);
-      margin-left: 20px;
-      font-weight: 700;
-      font-size: 16px;
-      transition: color 0.3s;
+      margin-left: 16px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.3s ease;
     }
-    nav a:hover { color: var(--accent); }
+    nav a:hover, nav a:focus { color: var(--accent); }
+    nav a:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
     .hero {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 24px;
       align-items: center;
-      padding: 60px 6%;
+      padding: 40px 5%;
       max-width: 1400px;
       margin: 0 auto;
     }
     .hero-left h1 {
-      font-size: clamp(28px, 5vw, 48px);
-      margin: 0 0 16px 0;
+      font-size: clamp(24px, 6vw, 40px);
+      margin-bottom: 12px;
       line-height: 1.2;
     }
-    .hero-left p { color: var(--muted); margin: 0 0 16px; font-size: clamp(14px, 2vw, 18px); }
-    .cta { display: flex; gap: 12px; margin-top: 16px; }
+    .hero-left p { color: var(--muted); margin-bottom: 12px; font-size: clamp(14px, 3vw, 16px); }
+    .cta { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
     .btn {
       background: var(--accent);
       border: none;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
       cursor: pointer;
       color: #042828;
-      font-size: clamp(14px, 2vw, 18px);
-      transition: background 0.3s;
+      font-size: clamp(14px, 2.5vw, 16px);
+      transition: background 0.3s ease, transform 0.2s ease;
     }
-    .btn:hover { background: #0cc1c0; }
+    .btn:hover { background: #0cc1c0; transform: translateY(-2px); }
+    .btn:focus { outline: 2px solid #0cc1c0; outline-offset: 2px; }
     .btn.alt {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--muted);
     }
-    .btn.alt:hover { border-color: var(--accent); color: var(--accent); }
-    .small { color: var(--muted); font-size: clamp(12px, 2vw, 16px); }
+    .btn.alt:hover, .btn.alt:focus { border-color: var(--accent); color: var(--accent); }
+    .small { color: var(--muted); font-size: clamp(12px, 2.5vw, 14px); }
 
     .model-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 8px 28px rgba(2, 6, 23, 0.6);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(2, 6, 23, 0.5);
       backdrop-filter: blur(6px);
       width: 100%;
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto;
     }
     .model-card img {
       width: 100%;
-      height: clamp(300px, 40vw, 500px);
-      border-radius: 12px;
+      height: clamp(200px, 35vw, 400px);
+      border-radius: 10px;
       object-fit: cover;
       background: linear-gradient(180deg, #081018, #061018);
+      loading: lazy;
     }
 
     /* Suitcase overlay animation */
     .suitcase-wrap { position: relative; }
-    .suitcase-float { transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1); transform-origin: center; }
-    .suitcase-open { transform: translateY(-12px) rotate(-8deg) scale(1.03); }
+    .suitcase-float { transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .suitcase-open { transform: translateY(-10px) rotate(-6deg) scale(1.02); }
 
     /* Portfolio grid */
     #portfolio {
-      padding: 36px 6%;
+      padding: 32px 5%;
       max-width: 1400px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
     }
     .portfolio-header {
       text-align: left;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .portfolio-header h2 {
-      font-size: clamp(24px, 3vw, 32px);
+      font-size: clamp(22px, 4vw, 28px);
       margin: 0;
     }
     .portfolio-header div {
       color: var(--muted);
-      font-size: clamp(14px, 2vw, 16px);
+      font-size: clamp(13px, 2.5vw, 15px);
     }
     .portfolio-videos {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
     }
     .post {
       background: var(--card);
@@ -187,216 +161,226 @@ System: I notice that the provided HTML code appears to be cut off. I'll proceed
       overflow: hidden;
       cursor: pointer;
       position: relative;
-      display: flex;
-      flex-direction: column;
+      transition: transform 0.3s ease;
     }
+    .post:hover, .post:focus-within { transform: translateY(-4px); }
     .post video {
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      display: block;
       background: linear-gradient(180deg, #081018, #061018);
+      loading: lazy;
     }
     .post .meta {
-      padding: 12px;
+      padding: 10px;
       flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
-    .post .meta h4 { margin: 0 0 8px; font-size: clamp(14px, 2.5vw, 18px); }
-    .post .meta p { margin: 0; color: var(--muted); font-size: clamp(12px, 2vw, 16px); }
+    .post .meta h4 { margin-bottom: 6px; font-size: clamp(14px, 2.5vw, 16px); }
+    .post .meta p { color: var(--muted); font-size: clamp(12px, 2vw, 14px); }
 
     /* Modal for project details */
     #projectModal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(2, 6, 12, 0.7);
+      background: rgba(2, 6, 12, 0.8);
       align-items: center;
       justify-content: center;
-      z-index: 80;
-      padding: 20px;
+      z-index: 100;
+      padding: 16px;
+      overflow: auto;
     }
     .modal-content {
       background: #071018;
-      padding: 24px;
+      padding: 20px;
       border-radius: var(--radius);
-      max-width: 900px;
-      width: 100%;
-      max-height: 90vh;
+      max-width: 800px;
+      width: 90%;
+      max-height: 85vh;
       overflow-y: auto;
       color: #e9f0f6;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
     .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .modal-header .close-btn {
       background: transparent;
       border: none;
       color: var(--muted);
-      font-size: 24px;
+      font-size: 20px;
       cursor: pointer;
+      transition: color 0.3s ease;
     }
+    .modal-header .close-btn:hover, .modal-header .close-btn:focus { color: var(--accent); }
     #projectModal video {
       width: 100%;
       aspect-ratio: 16 / 9;
       border-radius: var(--radius);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       background: linear-gradient(180deg, #081018, #061018);
-      max-height: clamp(300px, 50vw, 500px);
     }
     .actions {
-      margin-top: 12px;
+      margin-top: 10px;
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
+      gap: 8px;
     }
 
     /* Testimonials carousel */
     .testimonials {
-      padding: 36px 6%;
+      padding: 32px 5%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
       max-width: 1400px;
       margin: 0 auto;
     }
     .test-card {
       background: linear-gradient(180deg, #07161b, #06121a);
-      padding: 20px;
+      padding: 16px;
       border-radius: var(--radius);
-      box-shadow: 0 6px 24px rgba(2, 6, 12, 0.6);
+      box-shadow: 0 4px 20px rgba(2, 6, 12, 0.5);
       text-align: center;
     }
-    .stars { color: goldenrod; margin-bottom: 10px; font-size: 18px; }
+    .stars { color: goldenrod; margin-bottom: 8px; font-size: 16px; }
 
     /* Leaders */
     .team {
-      padding: 36px 6%;
+      padding: 32px 5%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
       max-width: 1400px;
       margin: 0 auto;
     }
     .leader {
       background: var(--card);
-      padding: 16px;
+      padding: 14px;
       border-radius: var(--radius);
       text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
+    .leader:hover, .leader:focus-within { transform: translateY(-4px); }
     .leader .more {
       display: none;
-      padding-top: 10px;
+      padding-top: 8px;
       color: var(--muted);
-      font-size: clamp(14px, 2vw, 16px);
+      font-size: clamp(13px, 2vw, 14px);
     }
     .leader.open .more { display: block; }
 
     /* Timeline / mapa mental */
     .timeline {
-      padding: 36px 6%;
+      padding: 32px 5%;
       display: flex;
-      gap: 24px;
+      gap: 16px;
       align-items: flex-start;
       max-width: 1400px;
       margin: 0 auto;
     }
     .years {
-      min-width: 120px;
-      background: rgba(255, 255, 255, 0.02);
-      padding: 12px;
+      min-width: 100px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px;
       border-radius: var(--radius);
     }
     .years button {
       display: block;
       width: 100%;
       text-align: left;
-      padding: 8px;
+      padding: 6px 8px;
       border: none;
       background: transparent;
       color: var(--muted);
       cursor: pointer;
-      font-weight: 700;
-      border-left: 4px solid transparent;
-      font-size: clamp(14px, 2vw, 16px);
+      font-weight: 600;
+      border-left: 3px solid transparent;
+      font-size: clamp(13px, 2vw, 15px);
+      transition: all 0.3s ease;
     }
+    .years button:hover, .years button:focus { color: #e6f9f7; border-left-color: var(--accent); }
     .years button.active {
       color: #e6f9f7;
       border-left-color: var(--accent);
     }
     .mindmap {
       flex: 1;
-      min-height: clamp(250px, 40vh, 400px);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+      min-height: clamp(200px, 35vh, 300px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 16px;
       position: relative;
       overflow: hidden;
     }
     .node {
       position: absolute;
-      padding: 10px 12px;
+      padding: 8px 10px;
       background: linear-gradient(180deg, #082226, #06343b);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
       cursor: pointer;
-      max-width: clamp(180px, 40vw, 240px);
+      max-width: clamp(160px, 35vw, 200px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
-    .node .title { font-weight: 800; font-size: clamp(14px, 2.5vw, 18px); }
-    .node .desc { font-size: clamp(12px, 2vw, 16px); color: var(--muted); margin-top: 8px; display: none; }
+    .node .title { font-weight: 700; font-size: clamp(13px, 2.5vw, 15px); }
+    .node .desc { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 6px; display: none; }
     .node.open .desc { display: block; }
 
-    /* Footer modernizado */
+    /* Footer */
     footer {
-      margin-top: auto;
-      padding: 36px 6%;
+      padding: 32px 5%;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
-      background: linear-gradient(180deg, rgba(7, 12, 18, 0.6), rgba(7, 12, 18, 0.45));
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(7, 12, 18, 0.7), rgba(7, 12, 18, 0.5));
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       max-width: 1400px;
       margin: 0 auto;
     }
-    .footer-section h4 { margin: 0 0 10px 0; font-size: clamp(16px, 2.5vw, 20px); }
-    .social a { display: inline-block; margin-right: 10px; color: var(--muted); font-size: clamp(14px, 2vw, 16px); }
-    .mini-gallery { display: flex; gap: 8px; justify-content: flex-end; }
+    .footer-section h4 { margin-bottom: 8px; font-size: clamp(15px, 2.5vw, 18px); }
+    .social a { display: inline-block; margin-right: 8px; color: var(--muted); font-size: clamp(13px, 2vw, 15px); }
+    .mini-gallery { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
     .mini-gallery img {
-      width: clamp(60px, 15vw, 80px);
-      height: clamp(48px, 12vw, 64px);
+      width: clamp(50px, 12vw, 70px);
+      height: clamp(40px, 10vw, 56px);
       object-fit: cover;
       border-radius: var(--radius);
+      loading: lazy;
     }
 
     /* Micro animations */
     .fade-up {
-      transform: translateY(10px);
+      transform: translateY(12px);
       opacity: 0;
-      transition: all 0.6s ease;
+      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
     }
     .fade-up.show { transform: none; opacity: 1; }
 
-    /* Enhanced Responsive Design */
+    /* Responsive Design */
     @media (min-width: 768px) {
-      .ちゃんと
-      .hero { grid-template-columns: 1fr 1fr; }
-      .model-card img { height: clamp(350px, 40vw, 500px); }
-      footer { grid-template-columns: 1fr 1fr 1fr; }
+      header { padding: 20px 6%; }
+      .hero { grid-template-columns: 1fr 1fr; padding: 48px 6%; }
+      .model-card { padding: 20px; max-width: 600px; }
+      .model-card img { height: clamp(250px, 35vw, 450px); }
       .portfolio-videos {
         flex-direction: row-reverse;
         justify-content: space-between;
+        gap: 20px;
       }
-      .post { flex: 1; max-width: 32%; }
+      .post { flex: 1; max-width: 31.5%; }
+      .testimonials { padding: 40px 6%; }
+      .team { padding: 40px 6%; }
+      .timeline { padding: 40px 6%; }
+      footer { grid-template-columns: 1fr 1fr 1fr; padding: 40px 6%; }
     }
     @media (min-width: 1024px) {
       header { padding: 24px 8%; }
-      .hero { padding: 72px 8%; }
+      .hero { padding: 64px 8%; }
       .model-card { padding: 24px; max-width: 700px; }
       #portfolio { padding: 48px 8%; }
       .portfolio-header { padding-left: 0; }
@@ -404,67 +388,76 @@ System: I notice that the provided HTML code appears to be cut off. I'll proceed
       .team { padding: 48px 8%; }
       .timeline { padding: 48px 8%; }
       footer { padding: 48px 8%; }
-      .post video { max-height: 350px; }
+      .post video { max-height: 300px; }
     }
     @media (max-width: 767px) {
-      .portfolio-videos { flex-direction: column; }
+      .portfolio-videos { flex-direction: column; gap: 12px; }
       .post { max-width: 100%; }
-      .btn { padding: 10px 16px; }
-      .post video { height: clamp(120px, 35vw, 180px); }
+      .btn { padding: 8px 14px; font-size: clamp(13px, 2.5vw, 14px); }
+      .post video { height: clamp(100px, 30vw, 160px); }
       .test-card { width: 100%; }
       .leader { width: 100%; }
-      .years { min-width: 80px; }
-      .mindmap { min-height: clamp(150px, 40vh, 200px); }
+      .years { min-width: 70px; }
+      .mindmap { min-height: clamp(150px, 30vh, 200px); }
+      .node { max-width: clamp(140px, 40vw, 180px); }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 32px 4%; }
+      .model-card img { height: clamp(160px, 40vw, 200px); }
+      .post video { height: clamp(80px, 25vw, 120px); }
+      .mini-gallery img { width: clamp(40px, 15vw, 60px); height: clamp(32px, 12vw, 48px); }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">
-    <div class="logo">E</div>
+  <div class="brand" role="banner">
+    <div class="logo" aria-label="Logo de EDBLAD">E</div>
     <div>
-      <div style="font-weight: 900; letter-spacing: 0.6px; font-size: clamp(18px, 2.5vw, 22px);">EDBLAD S.A.S.</div>
-      <div style="font-size: clamp(12px, 2vw, 14px); color: var(--muted)">Excelencia en acabados • Desde 2014</div>
+      <div style="font-weight: 900; letter-spacing: 0.5px; font-size: clamp(16px, 3vw, 20px);">EDBLAD S.A.S.</div>
+      <div style="font-size: clamp(12px, 2.5vw, 13px); color: var(--muted)">Excelencia en acabados • Desde 2014</div>
     </div>
   </div>
-  <nav>
-    <a href="#inicio" onclick="scrollToId('inicio')">Inicio</a>
-    <a href="#portfolio" onclick="scrollToId('portfolio')">Portafolio</a>
-    <a href="#historia" onclick="scrollToId('historia')">Historia</a>
-    <a href="#contacto" onclick="scrollToId('contacto')">Contacto</a>
+  <nav role="navigation" aria-label="Menú principal">
+    <a href="#inicio" onclick="scrollToId('inicio')" aria-label="Ir a Inicio">Inicio</a>
+    <a href="#portfolio" onclick="scrollToId('portfolio')" aria-label="Ir a Portafolio">Portafolio</a>
+    <a href="#historia" onclick="scrollToId('historia')" aria-label="Ir a Historia">Historia</a>
+    <a href="#contacto" onclick="scrollToId('contacto')" aria-label="Ir a Contacto">Contacto</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<section id="inicio" class="hero">
+<section id="inicio" class="hero fade-up" aria-labelledby="hero-title">
   <div class="hero-left">
-    <div class="small" style="display: inline-block; padding: 8px 12px; border-radius: 999px; background: linear-gradient(90deg, #052023, #064a49); color: #bff6f2; font-weight: 800">Acabados & Soluciones</div>
-    <h1>Transformamos tus espacios con acabados duraderos y con estilo.</h1>
+    <div class="small" style="display: inline-block; padding: 6px 10px; border-radius: 999px; background: linear-gradient(90deg, #052023, #064a49); color: #bff6f2; font-weight: 700">Acabados & Soluciones</div>
+    <h1 id="hero-title">Transformamos tus espacios con acabados duraderos y con estilo.</h1>
     <p class="small">EDBLAD S.A.S. — desde 05-06-2014, combinamos técnica, materiales premium y una pasión por el detalle. Proyectos residenciales y comerciales con enfoque en calidad y diseño.</p>
     <div class="cta">
-      <button class="btn" onclick="window.open('https://wa.me/573016232176', '_blank')">Solicitar presupuesto</button>
-      <button id="verPortfolioBtn" class="btn alt" onclick="triggerSuitcase()">Ver portafolio</button>
+      <button class="btn" onclick="window.open('https://wa.me/573016232176', '_blank')" aria-label="Solicitar presupuesto vía WhatsApp">Solicitar presupuesto</button>
+      <button id="verPortfolioBtn" class="btn alt" onclick="triggerSuitcase()" aria-label="Ver portafolio de proyectos">Ver portafolio</button>
     </div>
-    <div style="margin-top: 20px; color: var(--muted); font-size: clamp(14px, 2vw, 16px)">Servicios: Revestimientos • Pintura técnica • Estucos • Impermeabilización • Consultoría técnica</div>
+    <div style="margin-top: 16px; color: var(--muted); font-size: clamp(13px, 2.5vw, 15px);">Servicios: Revestimientos • Pintura técnica • Estucos • Impermeabilización • Consultoría técnica</div>
   </div>
   <div class="model-card suitcase-wrap">
-    <img src="edblad-logo.png" alt="EDBLAD Logo" style="width: 100%; border-radius: 12px; object-fit: cover; background: linear-gradient(180deg, #081018, #061018);">
-    <div style="position: absolute; right: 20px; bottom: 20px; width: clamp(100px, 20vw, 150px)" id="suitcaseHolder">
-      <model-viewer id="suitcaseModel" src="vintage_suitcase_derivative.glb" alt="Maleta vintage 3D" camera-controls auto-rotate class="suitcase-float" style="width: 100%; height: auto; aspect-ratio: 4 / 3;"></model-viewer>
+    <img src="edblad-logo.png" alt="Logo de EDBLAD" loading="lazy">
+    <div style="position: absolute; right: 16px; bottom: 16px; width: clamp(80px, 18vw, 120px)" id="suitcaseHolder">
+      <model-viewer id="suitcaseModel" src="vintage_suitcase_derivative.glb" alt="Maleta vintage 3D" camera-controls auto-rotate class="suitcase-float" style="width: 100%; height: auto; aspect-ratio: 4 / 3;" loading="lazy">
+        <div slot="poster" style="text-align: center; color: var(--muted); font-size: clamp(12px, 2vw, 14px);">Cargando modelo 3D...</div>
+      </model-viewer>
     </div>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="fade-up">
+<section id="portfolio" class="fade-up" aria-labelledby="portfolio-title">
   <div class="portfolio-header">
-    <h2>Portafolio — Proyectos destacados</h2>
+    <h2 id="portfolio-title">Portafolio — Proyectos destacados</h2>
     <div>Haz clic en un video para ver detalles.</div>
   </div>
-  <div class="portfolio-videos">
-    <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')">
-      <video id="video1" src="1.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+  <div class="portfolio-videos" role="list">
+    <article class="post" onclick="openProject('Dale vida a tus espacios', 'Con Edblad, cada acabado transforma tus paredes en un reflejo de elegancia y perfección.', 'Medellín', '1.mp4')" role="listitem" tabindex="0" onkeydown="if(event.key === 'Enter') this.click();" aria-label="Proyecto: Dale vida a tus espacios">
+      <video id="video1" src="1.mp4" muted loop playsinline poster="1-poster.jpg" loading="lazy">
         <source src="1.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
       </video>
@@ -473,8 +466,8 @@ System: I notice that the provided HTML code appears to be cut off. I'll proceed
         <p class="small">Medellín • Acabados</p>
       </div>
     </article>
-    <article class="post" onclick="openProject('Acabados que inspiran', 'Calidad y detalle en cada proyecto. Con Edblad, tus espacios brillan con un toque profesional.', 'Medellín', '2.mp4')">
-      <video id="video2" src="2.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+    <article class="post" onclick="openProject('Acabados que inspiran', 'Calidad y detalle en cada proyecto. Con Edblad, tus espacios brillan con un toque profesional.', 'Medellín', '2.mp4')" role="listitem" tabindex="0" onkeydown="if(event.key === 'Enter') this.click();" aria-label="Proyecto: Acabados que inspiran">
+      <video id="video2" src="2.mp4" muted loop playsinline poster="2-poster.jpg" loading="lazy">
         <source src="2.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
       </video>
@@ -483,8 +476,8 @@ System: I notice that the provided HTML code appears to be cut off. I'll proceed
         <p class="small">Medellín • Acabados</p>
       </div>
     </article>
-    <article class="post" onclick="openProject('Haz que tus paredes hablen', 'En Edblad convertimos lo simple en extraordinario. Tus muros merecen lucir impecables.', 'Medellín', '3.mp4')">
-      <video id="video3" src="3.mp4" autoplay muted loop style="width: 100%; border-radius: var(--radius); background: linear-gradient(180deg, #081018, #061018);">
+    <article class="post" onclick="openProject('Haz que tus paredes hablen', 'En Edblad convertimos lo simple en extraordinario. Tus muros merecen lucir impecables.', 'Medellín', '3.mp4')" role="listitem" tabindex="0" onkeydown="if(event.key === 'Enter') this.click();" aria-label="Proyecto: Haz que tus paredes hablen">
+      <video id="video3" src="3.mp4" muted loop playsinline poster="3-poster.jpg" loading="lazy">
         <source src="3.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
       </video>
@@ -497,123 +490,124 @@ System: I notice that the provided HTML code appears to be cut off. I'll proceed
 </section>
 
 <!-- TESTIMONIOS -->
-<section class="testimonials" aria-label="Reseñas">
-  <div class="test-card">
-    <div class="stars">★★★★★</div>
-    <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">María P.</div>
-    <div style="color: var(--muted); margin-top: 10px; font-size: clamp(14px, 2vw, 16px);">"EDBLAD entregó el proyecto a tiempo y con una calidad que superó nuestras expectativas. Recomendados 100%."</div>
-  </div>
-  <div class="test-card">
-    <div class="stars">★★★★★</div>
-    <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Carlos R.</div>
-    <div style="color: var(--muted); margin-top: 10px; font-size: clamp(14px, 2vw, 16px);">"Profesionales y muy técnicos. Su trabajo de impermeabilización nos salvó la fachada."</div>
-  </div>
-  <div class="test-card">
-    <div class="stars">★★★★★</div>
-    <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Sofía L.</div>
-    <div style="color: var(--muted); margin-top: 10px; font-size: clamp(14px, 2vw, 16px);">"Acabados finos y atención al detalle. Volvería a contratarlos sin dudar."</div>
+<section class="testimonials fade-up" aria-labelledby="testimonials-title">
+  <h2 id="testimonials-title" style="font-size: clamp(22px, 4vw, 28px); margin: 0 0 12px 0; text-align: left; padding: 0 5%; max-width: 1400px; margin: 0 auto;">Testimonios</h2>
+  <div style="padding: 0 5%; max-width: 1400px; margin: 0 auto;">
+    <div class="test-card">
+      <div class="stars" aria-label="5 estrellas">★★★★★</div>
+      <div style="font-weight: 700; font-size: clamp(15px, 2.5vw, 16px);">María P.</div>
+      <div style="color: var(--muted); margin-top: 8px; font-size: clamp(13px, 2vw, 14px);">"EDBLAD entregó el proyecto a tiempo y con una calidad que superó nuestras expectativas. Recomendados 100%."</div>
+    </div>
+    <div class="test-card">
+      <div class="stars" aria-label="5 estrellas">★★★★★</div>
+      <div style="font-weight: 700; font-size: clamp(15px, 2.5vw, 16px);">Carlos R.</div>
+      <div style="color: var(--muted); margin-top: 8px; font-size: clamp(13px, 2vw, 14px);">"Profesionales y muy técnicos. Su trabajo de impermeabilización nos salvó la fachada."</div>
+    </div>
+    <div class="test-card">
+      <div class="stars" aria-label="5 estrellas">★★★★★</div>
+      <div style="font-weight: 700; font-size: clamp(15px, 2.5vw, 16px);">Sofía L.</div>
+      <div style="color: var(--muted); margin-top: 8px; font-size: clamp(13px, 2vw, 14px);">"Acabados finos y atención al detalle. Volvería a contratarlos sin dudar."</div>
+    </div>
   </div>
 </section>
 
 <!-- LÍDERES / EQUIPO -->
-<section class="team" id="equipo">
-  <div class="leader" onclick="toggleLeader(this)">
-    <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
-      <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #0b84ff energetica font-size: clamp(16px, 2.5vw, 18px);"><div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900;">EM</div>
-      <div>
-        <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Edwin Martínez</div>
-        <div class="small">Co-fundador • Director técnico</div>
-      </div>
-      <div class="more" style="margin-top: 12px">
-        Edwin lidera el área técnica, validación de materiales y control de calidad. Experto en sistemas de revestimiento y aplicación decorativa.
-      </div>
-    </div>
-    <div class="leader" onclick="toggleLeader(this)">
-      <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
-        <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">BT</div>
+<section class="team fade-up" id="equipo" aria-labelledby="team-title">
+  <h2 id="team-title" style="font-size: clamp(22px, 4vw, 28px); margin: 0 0 12px 0; text-align: left; padding: 0 5%; max-width: 1400px; margin: 0 auto;">Nuestro equipo</h2>
+  <div style="padding: 0 5%; max-width: 1400px; margin: 0 auto;">
+    <div class="leader" onclick="toggleLeader(this)" tabindex="0" onkeydown="if(event.key === 'Enter') this.click();" aria-label="Edwin Martínez, Co-fundador y Director técnico">
+      <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #0b84ff, #0ea5a4); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">EM</div>
         <div>
-          <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Bladimir Torres</div>
+          <div style="font-weight: 700; font-size: clamp(15px, 2.5vw, 16px);">Edwin Martínez</div>
+          <div class="small">Co-fundador • Director técnico</div>
+        </div>
+      </div>
+      <div class="more">Edwin lidera el área técnica, validación de materiales y control de calidad. Experto en sistemas de revestimiento y aplicación decorativa.</div>
+    </div>
+    <div class="leader" onclick="toggleLeader(this)" tabindex="0" onkeydown="if(event.key === 'Enter') this.click();" aria-label="Bladimir Torres, Co-fundador y Gerente comercial">
+      <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #ffb86b, #ff6b6b); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">BT</div>
+        <div>
+          <div style="font-weight: 700; font-size: clamp(15px, 2.5vw, 16px);">Bladimir Torres</div>
           <div class="small">Co-fundador • Gerente comercial</div>
         </div>
       </div>
-      <div class="more" style="margin-top: 12px">
-        Bladimir maneja las relaciones con clientes y crecimiento comercial. Responsable de la expansión hacia Medellín y alianzas estratégicas.
-      </div>
+      <div class="more">Bladimir maneja las relaciones con clientes y crecimiento comercial. Responsable de la expansión hacia Medellín y alianzas estratégicas.</div>
     </div>
-    <div class="leader" onclick="toggle Leader(this)">
-      <div style="display: flex; gap: 12px; align-items: center; justify-content: center">
-        <div style="width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px;">SM</div>
+    <div class="leader" onclick="toggleLeader(this)" tabindex="0" onkeydown="if(event.key === 'Enter') this.click();" aria-label="Samuel Martínez, Jefe de proyectos y gestión de la calidad">
+      <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(90deg, #9be15d, #00e3ae); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">SM</div>
         <div>
-          <div style="font-weight: 800; font-size: clamp(16px, 2.5vw, 18px);">Samuel Martínez</div>
+          <div style="font-weight: 700; font-size: clamp(15px, 2.5vw, 16px);">Samuel Martínez</div>
           <div class="small">Jefe de proyectos y gestión de la calidad</div>
         </div>
       </div>
-      <div class="more" style="margin-top: 12px">
-        Coordina equipos, cronogramas y supervisa la ejecución en obra, asegurando calidad y tiempos de entrega.
-      </div>
+      <div class="more">Coordina equipos, cronogramas y supervisa la ejecución en obra, asegurando calidad y tiempos de entrega.</div>
     </div>
+  </div>
 </section>
 
 <!-- HISTORIA / TIMELINE -->
-<section id="historia" style="padding-bottom: 36px">
-  <div style="padding: 36px 6% 0 6%; max-width: 1400px; margin: 0 auto;">
-    <h2 style="font-size: clamp(24px, 3vw, 32px); margin: 0 0 16px 0; text-align: left;">Nuestra historia — 2014 → 2025</h2>
+<section id="historia" class="fade-up" aria-labelledby="historia-title">
+  <div style="padding: 32px 5% 0; max-width: 1400px; margin: 0 auto;">
+    <h2 id="historia-title" style="font-size: clamp(22px, 4vw, 28px); margin: 0 0 12px 0; text-align: left;">Nuestra historia — 2014 → 2025</h2>
     <div class="timeline">
-      <div class="years" id="yearsList">
+      <div class="years" id="yearsList" role="tablist">
         <!-- Buttons generated by JS -->
       </div>
-      <div class="mindmap" id="mindmap">
-        <div style="position: absolute; left: 20px; top: 20px; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">Haz clic en un año para ver su evento</div>
+      <div class="mindmap" id="mindmap" aria-live="polite">
+        <div style="position: absolute; left: 16px; top: 16px; color: var(--muted); font-size: clamp(13px, 2vw, 14px);">Haz clic en un año para ver su evento</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO / FOOTER -->
-<footer id="contacto">
+<footer id="contacto" class="fade-up" aria-labelledby="footer-title">
   <div class="footer-section">
-    <h4>EDBLAD S.A.S.</h4>
-    <div style="color: var(--muted); margin-bottom: 12px; font-size: clamp(14px, 2vw, 16px);">edbladsas@gmail.com • +57 301 623 2176</div>
-    <div style="display: flex; gap: 10px">
-      <a class="btn" href="https://wa.me/573016232176" target="_blank">WhatsApp</a>
-      <a class="btn alt" href="#portfolio" onclick="triggerSuitcase()">Ver portafolio</a>
+    <h4 id="footer-title">EDBLAD S.A.S.</h4>
+    <div style="color: var(--muted); margin-bottom: 10px; font-size: clamp(13px, 2vw, 15px);">edbladsas@gmail.com • +57 301 623 2176</div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <a class="btn" href="https://wa.me/573016232176" target="_blank" aria-label="Contactar por WhatsApp">WhatsApp</a>
+      <a class="btn alt" href="#portfolio" onclick="triggerSuitcase()" aria-label="Ver portafolio de proyectos">Ver portafolio</a>
     </div>
   </div>
   <div class="footer-section">
     <h4>Enlaces rápidos</h4>
-    <div style="display: flex; flex-direction: column; gap: 10px; color: var(--muted); font-size: clamp(14px, 2vw, 16px);">
-      <a href="#equipo" onclick="scrollToId('equipo')">Equipo</a>
-      <a href="#historia" onclick="scrollToId('historia')">Historia</a>
-      <a href="#portfolio" onclick="scrollToId('portfolio')">Proyectos</a>
+    <div style="display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: clamp(13px, 2vw, 15px);">
+      <a href="#equipo" onclick="scrollToId('equipo')" aria-label="Ir a Equipo">Equipo</a>
+      <a href="#historia" onclick="scrollToId('historia')" aria-label="Ir a Historia">Historia</a>
+      <a href="#portfolio" onclick="scrollToId('portfolio')" aria-label="Ir a Proyectos">Proyectos</a>
     </div>
   </div>
   <div class="footer-section" style="text-align: right">
     <h4>Síguenos</h4>
-    <div class="social" style="margin-bottom: 12px">
-      <a href="https://www.instagram.com/edblad_lo_mejor_en_acabados?igsh=b2R5b2lzc3ViMHcy" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@edblad.sas?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
+    <div class="social" style="margin-bottom: 10px">
+      <a href="https://www.instagram.com/edblad_lo_mejor_en_acabados?igsh=b2R5b2lzc3ViMHcy" target="_blank" aria-label="Síguenos en Instagram">Instagram</a>
+      <a href="https://www.tiktok.com/@edblad.sas?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="Síguenos en TikTok">TikTok</a>
     </div>
-    <h4 style="margin-top: 12px">Mini galería</h4>
+    <h4 style="margin-top: 10px">Mini galería</h4>
     <div class="mini-gallery">
-      <img src="11.png" alt="">
-      <img src="22.png" alt="">
-      <img src="12.png" alt="">
+      <img src="11.png" alt="Proyecto 1" loading="lazy">
+      <img src="22.png" alt="Proyecto 2" loading="lazy">
+      <img src="12.png" alt="Proyecto 3" loading="lazy">
     </div>
-    <div style="margin-top: 12px; color: var(--muted); font-size: clamp(12px, 2vw, 14px);">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
+    <div style="margin-top: 10px; color: var(--muted); font-size: clamp(12px, 2vw, 13px);">© EDBLAD S.A.S. — Constitución: 05-06-2014 — Todos los derechos reservados</div>
   </div>
 </footer>
 
 <!-- Modal for project details -->
-<div id="projectModal">
+<div id="projectModal" role="dialog" aria-labelledby="pmTitle" aria-hidden="true">
   <div class="modal-content">
     <div class="modal-header">
-      <div style="font-weight: 800; font-size: clamp(18px, 2.5vw, 20px);" id="pmTitle"></div>
-      <button class="close-btn" onclick="closeModal()">✕</button>
+      <div style="font-weight: 700; font-size: clamp(16px, 2.5vw, 18px);" id="pmTitle"></div>
+      <button class="close-btn" onclick="closeModal()" aria-label="Cerrar modal">✕</button>
     </div>
     <div id="pmBody"></div>
     <div class="actions">
-      <a class="btn" href="https://wa.me/573016232176" target="_blank">Solicitar info</a>
-      <button class="btn alt" onclick="closeModal()">Cerrar</button>
+      <a class="btn" href="https://wa.me/573016232176" target="_blank" aria-label="Solicitar información vía WhatsApp">Solicitar info</a>
+      <button class="btn alt" onclick="closeModal()" aria-label="Cerrar modal">Cerrar</button>
     </div>
   </div>
 </div>
@@ -623,7 +617,9 @@ System: I notice that the provided HTML code appears to be cut off. I'll proceed
   Helpers: scroll and modal
 --------------------------*/
 function scrollToId(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const element = document.getElementById(id);
+  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  element.focus({ preventScroll: true });
 }
 
 function openProject(title, desc, location, videoSrc) {
@@ -632,32 +628,36 @@ function openProject(title, desc, location, videoSrc) {
   const pmBody = document.getElementById('pmBody');
 
   pmTitle.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(90deg, #0b84ff, #0ea5a4);"></div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(90deg, #0b84ff, #0ea5a4);"></div>
       <div>
-        <div style="font-weight: 800">${title}</div>
-        <div style="color: var(--muted); font-size: clamp(14px, 2vw, 16px);">${location}</div>
+        <div style="font-weight: 700">${title}</div>
+        <div style="color: var(--muted); font-size: clamp(13px, 2vw, 14px);">${location}</div>
       </div>
     </div>
   `;
   pmBody.innerHTML = `
-    <video src="${videoSrc}" autoplay muted controls style="width: 100%; border-radius: var(--radius); margin-bottom: 12px; background: linear-gradient(180deg, #081018, #061018);">
+    <video src="${videoSrc}" autoplay controls playsinline style="width: 100%; border-radius: var(--radius); margin-bottom: 10px; background: linear-gradient(180deg, #081018, #061018);">
       <source src="${videoSrc}" type="video/mp4">
       Tu navegador no soporta el elemento de video.
     </video>
-    <div style="color: var(--muted); font-size: clamp(14px, 2vw, 16px);">${desc}</div>
-    <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px">
+    <div style="color: var(--muted); font-size: clamp(13px, 2vw, 14px);">${desc}</div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px">
       <span style="color: #ed4956">♥ ${Math.floor(Math.random() * 10000)} Like</span>
       <span style="color: var(--muted)">EDBLAD - lo mejor en acabados</span>
     </div>
-    <div style="margin-top: 12px; color: var(--muted); font-size: clamp(12px, 2vw, 14px);">Hace ${Math.floor(Math.random() * 24)}h</div>
+    <div style="margin-top: 10px; color: var(--muted); font-size: clamp(12px, 2vw, 13px);">Hace ${Math.floor(Math.random() * 24)}h</div>
   `;
 
   modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden', 'false');
+  modal.querySelector('.close-btn').focus();
 }
 
 function closeModal() {
-  document.getElementById('projectModal').style.display = 'none';
+  const modal = document.getElementById('projectModal');
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
 }
 
 /* -------------------------
@@ -665,12 +665,12 @@ function closeModal() {
 --------------------------*/
 const verBtn = document.getElementById('verPortfolioBtn');
 const suitcaseEl = document.getElementById('suitcaseModel');
-const suitcaseHolder = document.getElementById('suitcaseHolder');
-
 function triggerSuitcase() {
-  suitcaseEl.classList.add('suitcase-open');
-  setTimeout(() => { suitcaseEl.classList.remove('suitcase-open'); }, 1100);
-  setTimeout(() => { document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' }); }, 300);
+  if (suitcaseEl) {
+    suitcaseEl.classList.add('suitcase-open');
+    setTimeout(() => suitcaseEl.classList.remove('suitcase-open'), 1000);
+  }
+  setTimeout(() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' }), 300);
 }
 
 /* -------------------------
@@ -678,6 +678,8 @@ function triggerSuitcase() {
 --------------------------*/
 function toggleLeader(el) {
   el.classList.toggle('open');
+  const isOpen = el.classList.contains('open');
+  el.setAttribute('aria-expanded', isOpen);
 }
 
 /* -------------------------
@@ -706,22 +708,26 @@ for (let y = 2014; y <= 2025; y++) {
   const btn = document.createElement('button');
   btn.innerText = y;
   btn.dataset.year = y;
+  btn.setAttribute('role', 'tab');
+  btn.setAttribute('aria-selected', y === 2025);
   btn.onclick = () => selectYear(y);
   yearsList.appendChild(btn);
 }
 
-// Select default year
 function selectYear(year) {
-  Array.from(yearsList.querySelectorAll('button')).forEach(b => b.classList.toggle('active', b.dataset.year == year));
-  mindmap.innerHTML = '';
-  const center = createNode((timelineData[year] || { title: year }).title + ' • ' + (timelineData[year] ? timelineData[year].loc : '—'), (timelineData[year] || { text: 'Evento no disponible.' }).text, 40, 40, true);
+  Array.from(yearsList.querySelectorAll('button')).forEach(b => {
+    b.classList.toggle('active', b.dataset.year == year);
+    b.setAttribute('aria-selected', b.dataset.year == year);
+  });
+  mindmap.innerHTML = '<div style="position: absolute; left: 16px; top: 16px; color: var(--muted); font-size: clamp(13px, 2vw, 14px);">Haz clic en un año para ver su evento</div>';
+  const center = createNode((timelineData[year] || { title: year }).title + ' • ' + (timelineData[year] ? timelineData[year].loc : '—'), (timelineData[year] || { text: 'Evento no disponible.' }).text, 20, 20, true);
   mindmap.appendChild(center);
-  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 300, 40, false);
-  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 40, 240, false);
+  const impacto = createNode('Impacto', `Crecimiento en ${timelineData[year] ? timelineData[year].loc : '—'} con satisfacción de clientes y proyectos exitosos.`, 250, 20, false);
+  const evolucion = createNode('Evolución', `Transición a ${year >= 2021 ? 'Antioquia' : 'la costa'} con nuevas técnicas y expansión.`, 20, 200, false);
   mindmap.appendChild(impacto);
   mindmap.appendChild(evolucion);
   setTimeout(() => {
-    [center, impacto, evolucion].forEach((node, i) => {
+    [center, impacto, evolucion].forEach(node => {
       node.style.transform = 'translateY(0)';
       node.style.opacity = '1';
     });
@@ -733,43 +739,56 @@ function createNode(title, desc, x, y, isCenter) {
   el.className = 'node';
   el.style.left = x + 'px';
   el.style.top = y + 'px';
-  el.style.transform = 'translateY(6px)';
-  el.style.opacity = '0.98';
+  el.style.transform = 'translateY(8px)';
+  el.style.opacity = '0';
   if (isCenter) {
     el.style.background = 'linear-gradient(90deg, #064a49, #052023)';
-    el.style.fontSize = '18px';
-    el.style.padding = '14px 18px';
+    el.style.padding = '12px 16px';
   }
   el.innerHTML = `<div class="title">${title}</div><div class="desc">${desc}</div>`;
   el.onclick = () => el.classList.toggle('open');
+  el.setAttribute('role', 'button');
+  el.setAttribute('aria-expanded', 'false');
+  el.onkeydown = (e) => { if (e.key === 'Enter') el.classList.toggle('open'); };
   return el;
 }
 
 selectYear(2025);
 
 /* -------------------------
-  Video Debugging
+  Video Optimization
 --------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
-  const videos = document.querySelectorAll('video');
-  videos.forEach(video => {
-    video.addEventListener('loadeddata', () => {
-      console.log(`Video ${video.id} loaded successfully`);
+  const videos = document.querySelectorAll('video:not([controls])');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.play().catch(e => console.error(`Error playing video ${entry.target.id}:`, e));
+      } else {
+        entry.target.pause();
+      }
     });
-    video.addEventListener('error', (e) => {
-      console.error(`Error loading video ${video.id}:`, e);
-    });
-  });
+  }, { threshold: 0.1 });
+  videos.forEach(video => observer.observe(video));
 });
 
 /* -------------------------
-  Micro effect for scroll visibility
+  Scroll Animations
 --------------------------*/
 document.addEventListener('scroll', () => {
   document.querySelectorAll('.fade-up').forEach(el => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 80) el.classList.add('show');
+    if (rect.top < window.innerHeight * 0.9) el.classList.add('show');
   });
+});
+
+/* -------------------------
+  Modal Accessibility
+--------------------------*/
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('projectModal').style.display === 'flex') {
+    closeModal();
+  }
 });
 </script>
 </body>
